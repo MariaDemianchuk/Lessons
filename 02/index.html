@@ -1,1 +1,154 @@
+<!DOCTYPE html>
+<html lang="uk">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic_elements_HTML5</title>
+</head>
+
+<body>
+    <header>
+        <h1>HTML5 Семантичні елементи</h1>
+        <p>Семантичний елемент чітко описує його значення як для браузера, так і для розробника.</p>
+        <p>Приклади не <strong>семантичних</strong> елементів: &ltdiv&gt і &ltspan&gt - нічого не говорить про його
+            вміст.</p>
+        <p>Приклади <strong>семантичних</strong> елементів: &ltform&gt, &lttable&gt і &ltarticle&gt - чітко визначає
+            його зміст.</p>
+    </header>
+    <main>
+    <section>
+        <h2>Підтримка браузерів</h2>
+        <img src="images/browsers.jpg" alt="browsers" height="100">
+        <p>Семантичні елементи HTML5 підтримуються у всіх сучасних браузерах.</p>
+        <p>Крім того, ви можете "навчити" старих браузерів, як обробляти "невідомі елементи".</p>
+        <p>Прочитайте про це в
+            <a href="http://html5test.com/compare/browser/index.html" target="_blank" rel="noindex nofollow noopener noreferrer">
+                підтримці браузера HTML5
+            </a>
+        </p>
+    </section>
+    <section>
+        <h2>Нові семантичні елементи в HTML5</h2>
+        <p>HTML5 пропонує нові семантичні елементи для визначення різних частин
+            веб-сторінки:</p>
+        <nav>
+            <ul>
+                <li><a href="#section">&ltsection&gt</a></li>
+                <li><a href="#article">&ltarticle&gt</a></li>
+                <li><a href="#header">&ltheader&gt</a></li>
+                <li><a href="#footer">&ltfooter&gt</a></li>
+            </ul>
+        </nav>
+    </section>
+    <section id="section">
+        <h3>HTML5 &ltsection&gt елемент</h3>
+        <p>Елемент &ltsection&gt визначає розділ в документі.</p>
+        <p>Згідно з документацією в3к'с HTML5: "розділ представляє собою тематичну угруповання контенту, зазвичай з
+            заголовком".</p>
+        <p>Домашня сторінка зазвичай може бути розділена на розділи для ознайомлення, змісту і контактної інформації.
+        </p>
+        <img src="/02/images/section.png" alt="image" width="900">
+    </section>
+    <section id="article">
+        <h3>HTML5 &ltarticle&gt елемент</h3>
+        <p>Елемент &ltarticle&gt визначає незалежний, автономний вміст.</p>
+        <p>Стаття повинна мати сенс самостійно, і вона повинна мати можливість
+            читати його незалежно від іншої частини веб-сайту.</p>
+        <p>Приклади того, де можна використовувати елемент &ltarticle&gt:</p>
+        <ul>
+            <li>Повідомлення на форумі</li>
+            <li>Блозі</li>
+            <li>Газетна стаття</li>
+        </ul>
+        <img src="images/article.png" alt="image" width="900">
+    </section>
+    <section id="header">
+        <h3>HTML5 &ltheader&gt елемент</h3>
+        <p>Елемент &ltheader&gt задає заголовок для документа або розділу.</p>
+        <p>Елемент &ltheader&gt повинен використовуватися в якості контейнера для
+            вступного змісту.</p>
+        <p>В одному документі може бути кілька елементів &ltheader&gt.</p>
+        <p>У наступному прикладі визначається заголовок для статті:</p>
+        <img src="images/header.png" alt="image" width="900">
+    </section>
+    <section id="footer">
+        <h3>HTML5 &ltfooter&gt елемент</h3>
+        <p>Елемент &ltfooter&gt вказує нижній колонтитул для документа або розділу.</p>
+        <p>Нижній колонтитул зазвичай містить автора документа, інформацію про
+            авторське право, посилання на умови використання, контактні дані і т.д.</p>
+        <p>В одному документі може бути кілька елементів &ltfooter&gt.</p>
+        <img src="images/footer.png" alt="images" width="900">
+    </section>
+    <section>
+        <h3>Коли застосовують семантичні елементи HTML5</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ZThq93Yuwd0"
+            title="When to use semantic elements HTML5" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </section>
+    <section>
+        <h3>Список статей про семантичні елементи в HTML5</h3>
+        <article>
+            <ul>
+                <li>
+                    <h4>How to use HTML5 semantic tags? <em>by Denis Grushkin</em></h4>
+                    <p>A properly designed website will be better ranked by search robots and more likely to get on the
+                        first page of search engines.</p>
+                    <p>And if this is important to you, I suggest you read this article, which will explain how to use
+                        semantic tags.</p>
+                    <a href="https://maddevs.io/blog/semantic-html/" target="_blank" rel="noindex nofollow noopener noreferrer">
+                        read more
+                    </a>
+                </li>
+            </ul>    
+        </article>
+        <article>
+            <ul>
+                <li>
+                    <h4>Using Semantic Elements to Improve Your HTML <em>by Ashley Allen</em></h4>
+                    <p>Making sure that your website is easy for search engines to crawl and understand is hugely
+                        important. It's also equally important to make sure that your website is well structured to make
+                        it more accessible for your readers.</p>
+                    <p>One way that you can improve the structure of your website is by using semantic HTML elements.
+                        So, in this article, we're going to quickly look at what semantic HTML elements are and how you
+                        can use them yourself.</p>
+                    <a href="https://ashallendesign.co.uk/blog/using-semantic-elements-to-improve-your-html"
+                        target="_blank" rel="noindex nofollow noopener noreferrer">
+                        read more
+                    </a>
+                </li>
+            </ul>
+        </article>
+        <article>
+            <ul>
+                <li>
+                    <h4>Uncommon HTML tags that improve web semantics <em>by Mark Conroy</em></h4>
+                    <p>Words are important. They have meaning, and putting certain words side-by-side allows us to
+                        convey information to others. The same is true of punctuation. A sentence that is
+                        well-punctuated is much easier to understand than one without punctuation.</p>
+                    <p>I’ve become interested in grammar and punctuation — what might loosely be termed “semantics.” As
+                        a frontend developer, I’ve been as interested in the punctuation of the web — namely, using the
+                        correct tags to mark up pages — as I have been of the display of information.</p>
+                    <a href="https://blog.logrocket.com/uncommon-html-tags-improve-web-semantics/"
+                        target="_blank" rel="noindex nofollow noopener noreferrer">
+                        read more
+                    </a>
+                </li>
+            </ul>
+        </article>
+    </section>
+    <section>
+        <h3>Про автора</h3>
+        <iframe src="https://mariademianchuk.github.io/lesson01BA/" frameborder="0" width="1100"></iframe>
+    </section>
+</main>
+    <footer>
+        <p><em>Автор Дем&#8217янчук Марія</em></p>
+        <p><a href="mailto:maria.riaba@gmail.com"> maria.riaba@gmail.com</a></p>
+        <p><a href="tel:+380978994006"> +38 097 899 40 06</a></p>
+    </footer>
+</body>
+
+</html>
