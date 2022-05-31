@@ -34,11 +34,6 @@ a {
         color: #070707 !important;
 }
 
-a:hover { 
-    text-decoration: none;
-    color: yellow; 
-   } 
-
 .border {
     border: 1px solid #828282;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
