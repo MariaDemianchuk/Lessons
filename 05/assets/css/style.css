@@ -6,7 +6,7 @@ body {
 }
 
 .conteiner {
-    max-width: 944px;
+    width: 944px;
     margin: 0px 240px;
 }
 
@@ -22,7 +22,7 @@ body {
     display: inline-block;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     text-align:center;
-    margin: 22px 20px 29px 20px;
+    padding: 20px;
 }
 
 a {
@@ -43,10 +43,6 @@ a:hover {
     border: 1px solid #828282;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     margin: 0px 0px 29px 0px;
-}
-
-section {
-    margin-top: 100px;
 }
 
 h1 {
@@ -70,8 +66,7 @@ h2 {
 }
 
 .about-me {
-    height: 246px;
-    width: 480px;
+    max-width: 480px;
     text-align: center;
     display: block;
     margin-left: auto;
@@ -86,6 +81,130 @@ h2 {
 }
 
 section {
-    margin-top: 100px;
-    margin-bottom: 100px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+#about {
+    background-color: #F6F6F6;
+}
+
+.text-skills {
+    text-align: center;
+}
+
+
+.block {
+    padding-inline-start: 0px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    text-align:center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 82px 0px 0px;
+    list-style-type: none;
+    display: inline-block;
+}
+
+.star {
+    list-style-type: none;
+    display: inline-block;
+    text-align:center;
+    padding: 4px;
+}
+
+.block-name {
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.figma {
+    padding-top: 25px;
+    padding-bottom: avto;
+}
+
+#portfolio {
+    background-color: #F6F6F6;
+}
+
+.portfolio-title {
+    padding-bottom: 68px;
+}
+
+.portfolio-link {
+    color: #070707 !important;
+    text-align:center;
+    margin-left: 344px;
+    margin-right: 344px;
+    display: inline-block;
+    text-decoration: underline;
+    margin-bottom: 129px;
+}
+
+.portfolio-link2 {
+    color: #070707 !important;
+    text-align:center;
+    margin-left: 344px;
+    margin-right: 344px;
+    display: inline-block;
+    text-decoration: underline;
+}
+
+#contacts {
+    padding-top: 100px;
+    padding-bottom: 159px;
+}
+
+.footer-text {
+    text-align:center;
+    margin-left: avto;
+    margin-right: avto;
+    padding-bottom: 86px;
+}
+
+.bottom {
+    text-align: center;
+    margin-left: avto;
+    margin-right: avto;  
+}
+
+.bottom1 {
+    border-style: ridge;
+    border-color: #070707;
+    border-radius: 20px;
+    background-color: #070707;
+    color: #FFFFFF !important;
+    font-weight: 700;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-width: 10px;
+    margin-bottom: 31px;
+}
+
+
+.block-link-social {
+    text-align:center;
+    list-style-type: none;
+    display: inline-block;
+    margin-left: 230px;
+    margin-right: 230px;
+    padding-top: 31px;
+}
+
+.social {
+    list-style-type: none;
+    display: inline-block;
+    text-align:center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.footer-text-end {
+    text-align:center;
+    margin-left: avto;
+    margin-right: avto;
+    color: #828282;
+    font-size: 14px;
+    line-height: 19px;
+    padding-top: 44px;
 }
