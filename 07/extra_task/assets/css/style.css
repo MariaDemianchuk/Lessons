@@ -1,0 +1,71 @@
+* {
+    transition: all .1s ease-in;
+    box-sizing: border-box;
+
+}
+
+body {
+    background: #3399CC;
+    border: 25px solid #2B81AC;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.conteiner {
+    margin-left: 9.5%;
+    margin-right: 9.5%;
+    width: 81%;
+    vertical-align: auto;
+    text-align: center;
+    max-width: 1166 px;
+}
+
+h1 {
+    color: #FFFFFF;
+    font-size: 21px;
+    line-height: 25px;
+}
+
+.block {
+    display: inline-block;
+}
+
+.block-weather {
+    font-size: 0;
+    list-style: none;
+    border: 2px solid #FFFFFF;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.weathe-el {
+    display: inline-block;
+    font-size: 22px;
+    line-height: 26px;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    width: 25%;
+    text-align: center;
+}
+
+.San-Francisco {
+    width: 50%;
+}
+
+.Lisbon {
+    width: 50%;
+   
+}
+
+.block-weather .Sydney {
+    width: 100%;
+}
+
+.weathe-el .Lisbon {
+    background-color: #3399CC;;
+}
+.gradus {
+    font-size: 22px;
+    line-height: 26px;
+    color: rgba(255, 255, 255, 0.7);
+}
