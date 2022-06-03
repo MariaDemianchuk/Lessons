@@ -25,11 +25,17 @@ h1 {
     margin-right: 9.5%;
     max-width: 1116px;
 }
+.block-weather-one {
+   
+    border: 2px solid #FFFFFF;
+    padding: 0;
+}
 
 .block-weather {
     font-size: 0;
     border: 2px solid #FFFFFF;
     padding: 0;
+  
 }
 
 .weathe-el {
@@ -41,7 +47,14 @@ h1 {
     width: 25%;
     text-align: center;
     vertical-align: middle;
-  
+    padding-top: 26px;
+    padding-bottom: 27px;
+    height: 100%;
+}
+
+.weathe-el p {
+    margin: 0;
+    margin-bottom: 4px;
 }
 
 .gradus {
@@ -53,6 +66,7 @@ h1 {
 .block-weather .Lisbon {
     background-color: #3399CC;
     width: 50%; 
+    vertical-align: middle;
 }
 
 .block-weather .Paris {
@@ -65,6 +79,7 @@ h1 {
 
 .block-weather .Venice {
     background-color: #C24747;
+ 
 }
 
 .block-weather .Tel-Avive {
@@ -108,4 +123,21 @@ h1 {
 .block-weather :hover{
     opacity: 60%;
 }
+.icon p {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 11px;
+}
 
+.icon img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 4px;
+    width: 46px;
+    height: 48px;
+}
+
+.icon {
+    text-align: center;
+    font-size: 0;
+}
