@@ -1,41 +1,35 @@
 * {
     transition: all .1s ease-in;
     box-sizing: border-box;
-
 }
 
-body {
+main {
     background: #3399CC;
     border: 25px solid #2B81AC;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.conteiner {
-    margin-left: 9.5%;
-    margin-right: 9.5%;
-    width: 81%;
-    vertical-align: auto;
-    text-align: center;
-    max-width: 1166 px;
+ul {
+    padding: 0;
 }
 
 h1 {
     color: #FFFFFF;
     font-size: 21px;
     line-height: 25px;
+    margin-bottom: 40px;
+    margin-top: 66px;
 }
-
-.block {
-    display: inline-block;
+.conteiner {
+    margin-left: 9.5%;
+    margin-right: 9.5%;
+    max-width: 1116px;
 }
 
 .block-weather {
     font-size: 0;
-    list-style: none;
     border: 2px solid #FFFFFF;
     padding: 0;
-    display: inline-block;
-    vertical-align: middle;
 }
 
 .weathe-el {
@@ -46,26 +40,73 @@ h1 {
     border: 2px solid #FFFFFF;
     width: 25%;
     text-align: center;
+    vertical-align: middle;
+  
 }
 
-.San-Francisco {
-    width: 50%;
-}
-
-.Lisbon {
-    width: 50%;
-   
-}
-
-.block-weather .Sydney {
-    width: 100%;
-}
-
-.weathe-el .Lisbon {
-    background-color: #3399CC;;
-}
 .gradus {
     font-size: 22px;
     line-height: 26px;
     color: rgba(255, 255, 255, 0.7);
 }
+
+.block-weather .Lisbon {
+    background-color: #3399CC;
+    width: 50%; 
+}
+
+.block-weather .Paris {
+    background-color: #33CCCC;
+}
+
+.block-weather .Belgrade {
+   background-color: #996699; 
+}
+
+.block-weather .Venice {
+    background-color: #C24747;
+}
+
+.block-weather .Tel-Avive {
+    background-color: #E2674A;
+}
+
+.block-weather .Cair {
+    background-color:  #FFCC66;
+}
+
+.block-weather .New-York {
+    background-color: #99CC99;
+}
+
+.block-weather .New-Delhi {
+    background-color: #669999;
+}
+
+.block-weather .San-Francisco {
+    background-color: #CC6699;
+    width: 50%;
+}
+
+.block-weather .Tokyo {
+    background-color: #339966;
+}
+
+.block-weather .Sydney {
+    width: 100%;
+    background-color: #666699;
+}
+
+.bottom-text {
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    margin-top: 37px;
+    margin-bottom: 119px;
+}
+
+.block-weather :hover{
+    opacity: 60%;
+}
+
+
