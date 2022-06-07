@@ -34,21 +34,27 @@ main {
     color: #FFFFFF;
 }
 
+
 label {
-    font-size: 21px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    vertical-align: middle;
+    height: 45px;
+    display: inline-block;
+    width: 100%;
 }
 
 label span {
+    font-size: 21px;
+}
+
+label span~span{
     font-size: 16px;
 }
 
-span::before {
+label span~span::before {
     content: "(";
 }
 
-span::after {
+label span~span::after {
     content: ")";
 }
 
@@ -102,9 +108,6 @@ div:nth-child(2n) {
 .position {
     background-color: #88839E;
     height: 45px;
-    padding-top: 11px;
-    padding-bottom: 13px;
-    vertical-align: middle;
 }
 
 .position:hover {
