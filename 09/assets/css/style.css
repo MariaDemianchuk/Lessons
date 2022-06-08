@@ -1,0 +1,159 @@
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all .1s ease-in;
+}
+
+header div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+main {
+    margin-top: 70px;
+}
+
+h2 {
+    font-family: 'Francois One';
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 48px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+h2 span{
+    font-family: 'Farro';
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 0.04em;
+    vertical-align: text-top;
+}
+
+section {
+    margin-bottom: 70px;
+}
+
+section div {
+    font-family: 'PT Sans';
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 48px;
+    color: #000000;
+}
+
+.conteiner {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.lang {
+    display: inline-block;
+    font-family: 'Tourney';
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: 0.04em;
+}   
+
+.lang a {
+    text-decoration: none;
+    color: #000000;
+    margin-right: 50px;
+}
+
+.link1 a {
+    text-decoration: none;
+    font-family: 'Staatliches';
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 28px;
+    letter-spacing: 0.03em;
+    color: #000000;
+    display: inline-block;
+    margin-right: 10px;
+    
+}
+
+.link2 {
+    margin-right: 50%;
+}
+
+.link2 a {
+    text-decoration: none;
+    font-family: 'Staatliches';
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 28px;
+    letter-spacing: 0.03em;
+    color: #000000;
+    display: inline-block;
+    margin-left: 10px; 
+}
+
+.link2::before{
+    content: "/";
+    font-family: 'Staatliches';
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 28px;
+}
+
+.chapter1 span {
+    text-decoration: underline;
+}
+
+.chapter2 span {
+    font-style: italic;
+}
+
+.chapter3-1 span {
+    text-decoration: underline;
+}
+
+.chapter3-2 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.chapter3-3 {
+    padding-bottom: 40px;
+}
+
+.chapter3-4 + p{
+    background-color: lightgrey;
+    display: inline-block;
+}
+
+.chapter3-5 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.chapter3-5-1{
+    text-decoration: underline;
+}
+
+.chapter3-5 span+span{
+    background-color: lightgrey;
+    display: inline-block;
+}
+
+.chapter3-6 {
+    padding-bottom: 40px;
+}
+
+.chapter4-1 span {
+    font-style: italic;
+}
+
+.chapter4-2 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
