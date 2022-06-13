@@ -1,0 +1,372 @@
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all .1s ease-in;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 54px;
+    color: #2F281E;
+}
+
+footer {
+    border-top: 1px solid rgba(188, 208, 229, 0.496913);
+    padding-top: 70px;
+}
+
+footer h4 {
+    color: #2F281E;
+    font-family: 'Gotham';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.conteiner {
+    margin-left: 8.33%;
+    margin-right: 8.33%;
+}
+
+.header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 17px;
+    padding-bottom: 17px;
+}
+
+.logo {
+    width: 200px;
+}
+
+.logo img {
+    align-self: center;
+}
+
+.navigation {
+    line-height: 46px;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.navigation li {
+    display: inline-flex;
+    padding-right: 20px;
+}
+
+.nav-item a {
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: #2F281E;
+}
+
+.product {
+    color: #FF9900 !important;
+}
+
+.buttons {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.sign-in-button button {
+    border: 1px solid #BCD0E5;
+    width: 110px;
+    height: 46px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    margin-right: 32px;
+    background-color: transparent;
+}
+
+.sign-in-button a {
+    text-decoration: none;
+    color: #2F281E;
+}
+
+.sign-up-button button {
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    border: 1px solid #FF9900;
+    background-color: #FF9900;
+    width: 110px;
+    height: 46px;
+    border-radius: 4px;
+}
+
+.sign-up-button a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.section1 {
+    display: inline-flex;
+    margin-top: 70px;
+    margin-bottom: 99px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.section1 .block-left {
+    vertical-align: middle;
+    justify-content: center;
+}
+
+.block-left {
+    max-width: 500px;
+    padding-top: 97px;
+    padding-bottom: 97px;
+}
+
+.block-left p {
+    font-size: 18px;
+    color: #544837;
+}
+
+.get-started-button button {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    border: 1px solid #FF9900;
+    background-color: #FF9900;
+    display: inline-block;
+    width: 180px;
+    height: 50px;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.get-started-button a {
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    color: #FFFFFF !important;
+}
+
+.header-section2 {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.section2 {  
+    background-image: url(../images/bg.png);
+    background-position: bottom;
+    background-repeat: no-repeat; 
+    background-size: 100%; 
+}
+
+.section2 h2 {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    text-align: center;
+    color: #2F281E;
+    max-width: 539px;
+    margin-bottom: 31px;
+}
+
+.main-section2 {
+    display: inline-flex;
+    height: 100%;
+}
+
+.main1,
+.main2,
+.main3,
+.main4 {
+    flex-direction: column;
+}
+
+.main2 {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.main3 {
+    margin-right: 40px;
+}
+
+.main1 h3,
+.main2 h3,
+.main3 h3,
+.main4 h3 {
+    margin-top: 30px;
+    margin-bottom: 16px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27px;
+    color: #2F281E;
+}
+
+.main1 p,
+.main2 p,
+.main3 p,
+.main4 p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+    color: #544837;
+}
+
+.main1 i{
+    color: #FFFFFF;
+    background: #7752BE;
+    border-radius: 15px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.main2 i{
+    color: #FFFFFF;
+    background: #FAB005;
+    border-radius: 15px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.main3 i{
+    color: #FFFFFF;
+    background: #F03E3D;
+    border-radius: 15px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.main4 i{
+    color: #FFFFFF;
+    background: #4DADF7;
+    border-radius: 15px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.button {
+    margin-top: 70px;
+    padding-bottom: 70px;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+.button button {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    border: 1px solid #FF9900;
+    background-color: #FF9900;
+    display: inline-block;
+    width: 180px;
+    height: 50px;
+    border-radius: 4px;
+}
+
+.button a {
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    color: #FFFFFF !important;
+}
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-nav-item {
+    margin-bottom: 15px;
+}
+
+.footer-nav-item a {
+    text-decoration: none;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+    color: #544837;
+}
+
+.form {
+    max-width: 340px;
+}
+
+.form h4 {
+    margin-bottom: 25px;
+}
+
+.phone-numb input{
+    height: 50px;
+    width: 340px;
+    border: 1px solid #BCD0E5;
+    border-radius: 4px;
+    padding: 0px 10px;
+}
+
+.button2 {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.button2 button {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    border: 1px solid #FF9900;
+    background-color: #FF9900;
+    display: inline-block;
+    width: 180px;
+    height: 50px;
+    border-radius: 4px;
+}
+
+.button2 a {
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    color: #FFFFFF !important;
+}
+
+::placeholder{
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #BCD0E5;
+}
