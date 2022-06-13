@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1ca859b5b6.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>web-forms</title>
+</head>
+
+<body class="conteiner">
+    <section>
+        <div class="conteiner1">
+            <div>
+                <h2>Create an Account</h2>
+            </div>
+            <form class="form-create" action="" method="POST">
+                <div>
+                    <p>First Name</p>
+                    <input type="text" name="first_name">
+                </div>
+                <div>
+                    <p>Last Name</p>
+                    <input type="text" name="last_name">
+                </div>
+                <div class="e-mail">
+                    <p>E-mail</p>
+                    <input type="email" name="e-mail">
+                    <p>We'll never share your email with anyone else.</p>
+                </div>
+                <div class="gender">
+                    <input type="radio" id="gender" name="gender">
+                    <label for="gender">
+                        <span class="checkbox"></span>
+                        <span>Male</span>
+                    </label>
+                    <input type="radio" id="gender1" name="gender">
+                    <label for="gender1">
+                        <span class="checkbox"></span>
+                        <span>Female</span>
+                    </label>
+                </div>
+                <div>
+                    <p>Country</p>
+                    <select class="select" name="country" id="">
+                        <option value="">Select</option>
+                        <option value="1">Ukraine</option>
+                        <option value="2">United States</option>
+                        <option value="3">Australia</option>
+                        <option value="4">Poland</option>
+                        <option value="5">Romania</option>
+                        <option value="6">Finland</option>
+                        <option value="7">Canada</option>
+                    </select>
+                </div>
+                <div class="city">
+                    <p>City</p>
+                    <input type="text" name="city">
+                </div>
+                <div class="submit-button">
+                    <button type="submit">
+                        Sign Up
+                    </button>
+                </div>
+            </form>
+            <div class="text">
+                <p>By clicking the 'Sign Up' button, you confirm that you accept our
+                    <span><a href="http://" target="_blank" rel="noopener noreferrer">Terms of Use</a></span>
+                    and
+                    <span><a href="http://" target="_blank" rel="noopener noreferrer">Privacy Policy</a></span>.
+                </p>
+            </div>
+            <hr>
+            <div class="end">
+                <p>Have an account?</p>
+                <p><a href="">Log In</a></p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="conteiner1 ">
+            <h2>
+                Profile
+            </h2>
+            <form class="form-update" action="" method="POST">
+                <div>
+                    <img src="assets/images/myphoto.jpg" alt="photo">
+                </div>
+                <div class="load-photo">
+                    <div>
+                        <input type="file" name="profile-photo" id="profile-photo">
+                        <label class="photo" for="profile-photo">
+                            <i class="fa-solid fa-camera"></i>
+                        </label>
+                        <span>Up to 1 MB (300x300 px)</span>
+                    </div>
+                    <div>
+                        <button class="button-delete">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <p>Name</p>
+                    <input type="text" name="update_name">
+                </div>
+                <div class="update_email">
+                    <p>E-mail</p>
+                    <input type="email" name="update_email">
+                </div>
+                <div class="update_country">
+                    <p>Country</p>
+                    <select class="select" name="update_country" id="">
+                        <option value="">Select</option>
+                        <option value="1">Ukraine</option>
+                        <option value="2">United States</option>
+                        <option value="3">Australia</option>
+                        <option value="4">Poland</option>
+                        <option value="5">Romania</option>
+                        <option value="6">Finland</option>
+                        <option value="7">Canada</option>
+                    </select>
+                </div>
+                <div class="update_city">
+                    <p>City</p>
+                    <input type="text" name="update_city">
+                </div>
+                <div>
+                    <p>Zip Code</p>
+                    <input type="text" name="update_zip_code">
+                </div>
+                <div class="update_phone">
+                    <p>Phone Number</p>
+                    <input type="text" name="update_phone">
+                </div>
+                <div class="update-button">
+                    <button type="submit">
+                        Update
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+</body>
+
+</html>
