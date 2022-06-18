@@ -1,0 +1,315 @@
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all .1s ease-in;
+}
+
+:root {
+    --bg-body: #F6F6F6;
+    --bg-header: #FFFFFF;
+    --bg-footer: #FFFFFF;
+    --color-nav: #3C3C3C;
+    --color-nav-hover: #18B5DC;
+    --color-button-border: #3C3C3C;
+    --color-button-link: #3C3C3C;
+    --bg-button: #FFFFFF;
+    --bg-button-hover: #18B5DC;
+    --color-button-hover: #FFFFFF;
+    --color-title: #3C3C3C;
+    --color-text: #3C3C3C;
+    --color-divider: #DDDBDB;
+    --bg-photo-hover: #18B5DC;
+    --bg-icon: #5DCBE6;
+    --color-icon: white;
+    --color-contacts-full-name: #282528;
+    --color-contacts-position: #646464;
+    --font: 'Lato';
+    --color-icon-footer: #18B5DC;
+}
+
+.bg {
+    background-color: var(--bg-body);
+    margin: 0;
+}
+
+.bg__header {
+    background-color: var(--bg-header);
+}
+
+.bg__footer {
+    background-color: var(--bg-footer);
+}
+
+.conteiner {
+    width: 81%;
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+.header {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100%;
+    max-height: 80px;
+    margin: 0 auto;
+    position: relative;
+    top: 0;
+}
+
+.nav {
+    display: inline-flex;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.nav__item {
+    margin-right: 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--color-nav)
+}
+
+.nav__item--header {
+    font-family: var(--font);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.nav__item:hover {
+    color: var(--color-nav-hover);
+}
+
+.header__button {
+    border: 1px solid var(--color-button-border);
+    width: 130px;
+    height: 42px;
+    background-color: var(--bg-button);
+    margin: 0 auto;
+    padding: 0;
+}
+
+.header__button__link {
+    text-decoration: none;
+    font-family: var(--font);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: var(--color-button-link);
+    padding: 10px 18px;
+    margin: 0 auto;
+}
+
+.header__button:hover {
+    background-color: var(--bg-button-hover);
+    border-color: var(--bg-button-hover);
+}
+
+.header__button__link:hover {
+    color: var(--color-button-hover);
+}
+
+.title {
+    font-family: var(--font);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 41px;
+    text-align: center;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--color-title);
+    margin-top: 150px;
+}
+
+.divider {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.divider__item {
+    border: 4px solid var(--color-divider);
+    width: 45px;
+    display: inline-block;
+}
+
+.text {
+    font-family: var(--font);
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: var(--color-text);
+    max-width: 570px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 60px;
+}
+
+.contacts {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 150px;
+}
+
+.contacts__card {
+    background-color: transparent;
+    width: 270px;
+    height: 270px;
+    border: 1px solid transparent;
+    perspective: 1000px;
+}
+
+.contacts__card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.contacts__card:hover .contacts__card-inner {
+    transform: rotateY(180deg);
+}
+
+.contacts__card-front__img {
+    width: 270px;
+    height: 270px;
+}
+
+.contacts__card-front,
+.contacts__card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.contacts__card-back {
+    background-color: var(--bg-photo-hover);
+    transform: rotateY(180deg);
+}
+
+.contacts__card-back__1 {
+    display: inline-flex;
+    justify-content: center;
+    margin: 114px 68px;
+}
+
+.contacts__card-back__item {
+    text-decoration: none;
+    margin-right: 4px;
+    display: inline-block;
+}
+
+.contacts__icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--bg-icon);
+    background-color: var(--bg-icon);
+    color: var(--color-icon);
+    width: 40px;
+    height: 40px;
+}
+
+.contacts__icon:hover {
+    background-color: var(--color-icon);
+    color: var(--bg-button-hover);
+}
+
+.contacts__name {
+    margin-top: 20px;
+}
+
+.contacts__full-name,
+.contacts__position {
+    margin: 0;
+}
+
+.contacts__full-name {
+    font-family: var(--font);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: var(--color-contacts-full-name);
+}
+
+.contacts__position {
+    font-family: var(--font);
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+    color: var(--color-contacts-position);
+}
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__logo {
+    margin-top: 40px;
+    margin-bottom: 28px;
+}
+
+.contacts--footer {
+    max-width: 250px;
+    margin-bottom: 40px;
+    margin-top: 28px;
+}
+
+.nav__item--footer {
+    font-family: var(--font);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.contacts__item-footer {
+    text-decoration: none;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.contacts__icon-footer {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--color-icon-footer);
+    background-color: var(--bg-footer);
+    color: var(--color-icon-footer);
+    width: 40px;
+    height: 40px;
+}
+
+.contacts__icon-footer:hover {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--color-icon-footer);
+    background-color: var(--color-icon-footer);
+    color: var(--bg-footer);
+    width: 40px;
+    height: 40px;
+}
+
