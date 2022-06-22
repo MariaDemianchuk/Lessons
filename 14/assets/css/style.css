@@ -1,0 +1,229 @@
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-card-hover: #FFFFFF;
+    --color-border-card: black;
+    --red: red;
+    --black: black;
+    --font: 'Merriweather', serif;
+    --width-card: 145px;
+    --height-card: 200px;
+
+}
+
+@keyframes rotation {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    50% {
+        transform: rotateY(180deg)
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes rotation_back {
+    from {
+        transform: rotateY(180deg);
+    }
+
+    50% {
+        transform: rotateY(360deg)
+    }
+
+    to {
+        transform: rotateY(540deg);
+    }
+}
+
+.conteiner {
+    max-width: 1340px;
+    margin: 0 auto;
+    width: 93%;
+}
+
+.cards {
+    display: inline-flex;
+    justify-content: space-between;
+    font-size: xx-large;
+    width: 100%;
+}
+
+.card {
+    background-color: transparent;
+    border: 0px solid transparent;
+    perspective: 1000px;
+    width: var(--width-card);
+    height: var(--height-card);
+}
+
+.card__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .card__inner {
+    transform: rotateY(180deg);
+}
+
+.card__front__img {
+    width: var(--width-card);
+    height: var(--height-card);
+}
+
+.card__front,
+.card__back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: 1px solid var(--color-border-card);
+    border-radius: 3px;
+}
+
+.card__back {
+    background-color: var(--bg-card-hover);
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font);
+    border-radius: 7px;
+}
+
+.card__back__icon--red,
+.card__back__letter--red {
+    color: var(--red);
+    margin: 0;
+}
+
+.card__back__icon--black,
+.card__back__letter--black {
+    color: var(--black);
+    margin: 0;
+}
+
+.card__back__letter--rotate {
+    transform: rotate(180deg);
+}
+
+.card__back__letter--rotate-10,
+.card__back__letter--10 {
+    font-size: x-large;
+}
+
+.icon__top,
+.icon__end {
+    font-size: 15px;
+}
+
+.icon__center {
+    font-size: 70px;
+}
+
+.icon__end {
+    transform: rotate(180deg);
+}
+
+
+.left-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-bottom {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: end;
+}
+
+.animation {
+    animation: rotation 3s 2s ease-in-out infinite;
+}
+
+.animation__back {
+    animation: rotation_back 3s 2s ease-in-out infinite;
+}
+
+.animation1 {
+    animation: rotation 3s 4s ease-in-out infinite;
+}
+
+.animation__back1 {
+    animation: rotation_back 3s 4s ease-in-out infinite;
+}
+
+.animation2 {
+    animation: rotation 3s 6s ease-in-out infinite;
+}
+
+.animation__back2 {
+    animation: rotation_back 3s 6s ease-in-out infinite;
+}
+
+.animation3 {
+    animation: rotation 3s 8s ease-in-out infinite;
+}
+
+.animation__back3 {
+    animation: rotation_back 3s 8s ease-in-out infinite;
+}
+
+.animation4 {
+    animation: rotation 3s 10s ease-in-out infinite;
+}
+
+.animation__back4 {
+    animation: rotation_back 3s 10s ease-in-out infinite;
+}
+
+.animation5 {
+    animation: rotation 3s 12s ease-in-out infinite;
+}
+
+.animation__back5 {
+    animation: rotation_back 3s 12s ease-in-out infinite;
+}
+
+.animation6 {
+    animation: rotation 3s 14s ease-in-out infinite;
+}
+
+.animation__back6 {
+    animation: rotation_back 3s 14s ease-in-out infinite;
+}
+
+.animation7 {
+    animation: rotation 3s 16s ease-in-out infinite;
+}
+
+.animation__back7 {
+    animation: rotation_back 3s 16s ease-in-out infinite;
+}
+
+.animation8 {
+    animation: rotation 3s 18s ease-in-out infinite;
+}
+
+.animation__back8 {
+    animation: rotation_back 3s 18s ease-in-out infinite;
+}
