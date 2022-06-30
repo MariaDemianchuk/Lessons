@@ -612,7 +612,7 @@
         flex-direction: column;
     }
 
-    .articles__width, 
+    .articles__width,
     .articles__img--wth img {
         max-width: 100%;
     }
@@ -720,12 +720,13 @@
 }
 
 @media screen and (max-width:393px) {
+
     .article__text,
     .article__img--wid img,
     .articles__img--width img,
     .articles__width,
     .articles__img--wth img {
-        max-width:100%;
+        max-width: 100%;
     }
 }
 
