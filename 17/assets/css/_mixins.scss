@@ -1,0 +1,16 @@
+@mixin text ($font, $weight, $size, $height, $color) {
+    font-family: $font;
+    font-style: normal;
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $height;
+    text-align: center;
+    text-transform: uppercase;
+    color: $color;
+}
+
+@mixin media ($width) {
+    @media screen and (max-width: $width){
+        @content;
+    }
+}

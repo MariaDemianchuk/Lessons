@@ -1,16 +1,345 @@
-.header {
-    &__container {
-        @extend container !optional; 
+.body__container {
+    @extend .container;
+
+    @include media ($width8) {
+        margin: 50px auto;
     }
+}
+
+.header {
+    text-align: center;
 
     &__h2 {
-        font-family: 'Raleway';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 24px;
-        text-align: center;
-        text-transform: uppercase;
-        color: $colgrey898F8F;
+        @include text($FontRaleway, 500, 18px, 24px, $colgrey898F8F);
+
+
+        @include media ($width8) {
+            font-size: 14px;
+            line-height: 20px;
+        }
     }
+
+    &__h1 {
+        @include text($FontRoboto, 900, 60px, 66px, $colgoldFFCC00);
+        margin-top: 15px;
+        margin-bottom: 40px;
+
+        @include media ($width5) {
+            font-size: 40px;
+            line-height: 46px;
+        }
+
+        @include media ($width8) {
+            font-size: 30px;
+            line-height: 36px;
+        }
+    }
+
+    &__lines {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+
+    &__img {
+        margin: 0 5px;
+    }
+
+    &__line {
+        display: block;
+        border-top: 1px solid $colgoldFFCC00;
+        width: 210px;
+
+        @include media ($width7) {
+            width: 100px;
+        }
+
+        @include media ($width9) {
+            width: 50px;
+        }
+    }
+}
+
+.main {
+    display: flex;
+    align-items: center;
+
+    @include media ($width1) {
+        justify-content: space-between;
+    }
+
+    @include media ($width6) {
+        flex-direction: column;
+    }
+
+    .image {
+        max-width: 430px;
+        margin-left: 70px;
+
+        @include media ($width1) {
+            margin-left: 0px;
+        }
+
+        @include media ($width3) {
+            max-width: 370px;
+        }
+
+        @include media ($width5) {
+            max-width: 320px;
+        }
+
+        @include media ($width6) {
+            margin-bottom: 30px;
+        }
+
+        &__border {
+            .border__line {
+                @extend .header__line;
+                width: 100px;
+
+                @include media ($width8) {
+                    display: none;
+                }
+            }
+
+            .border__line--lefttop {
+                transform: rotate(90deg);
+                position: relative;
+                right: 50px;
+                top: 50px;
+            }
+
+            .border__line--rghttop {
+                @extend .border__line--lefttop;
+                left: 50px;
+                right: 0px;
+            }
+        }
+
+        &__wrapper--top {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__photo {
+            margin: 15px;
+            display: flex;
+
+            & img {
+                @include media ($width3) {
+                    max-width: 340px;
+                }
+
+                @include media ($width5) {
+                    max-width: 270px;
+                }
+
+                @include media ($width8) {
+                    max-width: 210px;
+                }
+            }
+
+        }
+
+        &__wrapper--bottom {
+            display: flex;
+            justify-content: space-between;
+            transform: rotateX(180deg);
+        }
+
+    }
+
+    .line {
+        display: inline-block;
+        width: 1px;
+        height: 560px;
+        background-color: $colgoldFFCC00;
+        border-width: 0px;
+        margin: 0 85px;
+
+        @include media ($width2) {
+            margin: 0 50px;
+        }
+
+        @include media ($width4) {
+            margin: 0 10px;
+        }
+
+        @include media ($width6) {
+            display: none;
+        }
+    }
+
+    .text {
+        max-width: 430px;
+        margin-right: 70px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        @include media ($width1) {
+            margin-right: 0px;
+        }
+
+        @include media ($width3) {
+            max-width: 370px;
+        }
+
+        @include media ($width5) {
+            max-width: 320px;
+        }
+
+        &__h3 {
+            @include text('Roboto', 900, 36px, 42px, $colgrey666666);
+            text-transform: capitalize;
+            margin-bottom: 30px;
+
+
+            @include media ($width8) {
+                font-size: 26px;
+                line-height: 32px;
+            }
+        }
+
+        &__line {
+            @extend .header__line;
+            width: 100px;
+            margin-bottom: 30px;
+        }
+
+        &__h4 {
+            @include text('Raleway', 400, 24px, 36px, $colgrey666666);
+            text-transform: capitalize;
+            margin-bottom: 30px;
+
+            @include media ($width8) {
+                font-size: 20px;
+                line-height: 30px;
+            }
+        }
+
+        .social {
+            display: flex;
+            margin-bottom: 49px;
+
+            &__bg {
+                border: 2px solid $colgreyCCCCCC;
+                border-radius: 50%;
+                position: relative;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 5px;
+                flex-wrap: wrap;
+
+                @include media ($width8) {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+
+            &__bg:hover {
+                border-color: $colgoldFFCC00;
+
+                .social__svg--hov {
+                    opacity: 1;
+                }
+            }
+
+            &__svg {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                padding: 7px;
+            }
+
+            &__svg--hov {
+                opacity: 0;
+            }
+
+
+        }
+
+        &__p {
+            @include text('Raleway', 500, 14px, 24px, $colgrey333333);
+            text-transform: none;
+            margin-bottom: 20px;
+
+            @include media ($width4) {
+                font-size: 12px;
+                line-height: 20px;
+            }
+        }
+
+        .slider {
+            display: flex;
+            margin-bottom: 25px;
+
+            &__item {
+                @extend .header__line;
+                width: 10px;
+                border-width: 4px;
+            }
+
+            &__item--center {
+                @extend .slider__item;
+                width: 20px;
+                margin: 0 5px;
+            }
+        }
+
+        &__button {
+            border: 1px solid $colgoldFFCC00;
+            cursor: pointer;
+            animation: tossing 2s infinite;
+
+            @keyframes tossing {
+                0% {
+                    transform: rotate(-4deg);
+                }
+
+                50% {
+                    transform: rotate(4deg);
+                }
+
+                100% {
+                    transform: rotate(-4deg);
+                }
+            }
+
+            @-webkit-keyframes tossing {
+                0% {
+                    -webkit-transform: rotate(-4deg);
+                }
+
+                50% {
+                    -webkit-transform: rotate(4deg);
+                }
+
+                100% {
+                    -webkit-transform: rotate(-4deg);
+                }
+            }
+
+            &__item {
+                background-color: $colwhite;
+                border: 0;
+                padding: 5px 10px;
+                @include text('Open Sans', 700, 14px, 14px, $colgrey666666)
+            }
+
+            &:hover {
+                .text__button__item {
+                    color: $colgoldFFCC00;
+                    cursor: pointer;
+                }
+            }
+        }
+
+    }
+
+
 }
