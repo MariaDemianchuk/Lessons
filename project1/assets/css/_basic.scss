@@ -1,0 +1,34 @@
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all .2s ease-in;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+.body__bg {
+    background: url(/project1/assets/images/first-screen-image.png), linear-gradient(183.11deg, rgba(22, 25, 38, 0) 46.73%, #161926 63.21%), $coldarkblue;
+    background-repeat: no-repeat, no-repeat, repeat;
+    background-size: contain;
+}
+
+@keyframes block {
+    from {
+        opacity: 0;
+        transform: perspective(500px) translate3d(-35px, -40px, -150px) rotate3d(1, -1, 0, 35deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: perspective(500px) translate3d(0, 0, 0);
+    }
+}

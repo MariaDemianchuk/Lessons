@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+  }
+  header {
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+  }
+  .hero {
+    background: teal;
+    color: white;
+    padding: 4rem 2rem;
+    position: relative;
+    z-index: 1;
+    color: rgba(255, 255, 255, .2);
+    font-size: 3rem;
+    text-align: center;
+  }
+  .header-bg {
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    background: white;
+    top: 0;
+  }
+  .content {
+    background: lightgrey;
+    padding: 2rem;
+    min-height: 800px;
+  }
