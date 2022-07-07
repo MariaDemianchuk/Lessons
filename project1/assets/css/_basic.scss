@@ -16,8 +16,8 @@ ul li {
 }
 
 .body__bg {
-    background: url(/project1/assets/images/bg.svg), linear-gradient(183.11deg, rgba(22, 25, 38, 0) 46.73%, #161926 63.21%), $coldarkblue;
-    background-repeat: no-repeat, no-repeat, repeat;
+    background: url(/project1/assets/images/bg.svg), $coldarkblue;
+    background-repeat: no-repeat, repeat;
     background-size: contain;
 }
 
