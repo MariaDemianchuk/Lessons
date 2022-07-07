@@ -70,7 +70,7 @@
         opacity: 0.8;
         margin-top: 20px;
         margin-bottom: 50px;
-        max-width: 516px;
+        max-width: 439px;
     }
 
     &__button {
@@ -90,6 +90,7 @@
             position: relative;
             left: 10px;
             top: -30%;
+            animation: pulse 2s infinite;
         }
 
 
@@ -112,6 +113,14 @@
         position: relative;
     }
 
+    &__img {
+        max-width: 49%;
+
+        & img {
+            width: 100%;
+        }
+    }
+
     &__block2 {
         background-color: $coldarkblue-op;
         width: 70%;
@@ -121,11 +130,15 @@
         position: absolute;
         top: 6.7%;
         left: 34%;
-        max-width: 770px;
+        max-width: 66%;
         padding: 45px 0;
 
-        &--lft {
+        &__lft {
             margin: 0 56px;
+        }
+
+        &__rgt {
+            max-width: 52%;
         }
     }
 
@@ -171,7 +184,6 @@
     &__text__rght {
         @extend .sect2__text;
         margin: 0;
-        max-width: 390px;
     }
 
     &__button {
@@ -184,6 +196,7 @@
 
         &__bg {
             @extend .sect1__link__bg;
+           
         }
     }
 
@@ -308,6 +321,7 @@
 
     &__text__end {
         @extend .sect3__block__text;
+        margin: 0;
         max-width: 897px;
         letter-spacing: 0.04em;
     }
@@ -320,6 +334,15 @@
     &__block {
         display: flex;
         position: relative;
+
+        &__img {
+            display: flex;
+            max-width: 51%;
+
+            & img {
+                width: 100%;
+            }
+        }
     }
 
     &__block2 {
@@ -334,7 +357,7 @@
         position: absolute;
         top: 8.33%;
         left: 399px;
-        max-width: 770px;
+        max-width: 66%;
         height: 450px;
         padding: 75px 0px 75px 70px;
 
@@ -361,16 +384,20 @@
     &__button {
         display: flex;
         border: 1px solid $colgray-dark;
-
         align-self: baseline;
-    }
+        animation: pulse 2s infinite;
 
+        &:hover {
+            border-color: $coltext_green-neon-dark;
+        }
+    }
     &__link {
         @extend .sect1__link;
-        padding: 33px 89px;
+        padding: 33px 91px;
 
         &__bg {
             @extend .sect1__link__bg;
+            animation: none;
         }
     }
 }
@@ -380,6 +407,8 @@
 
     &__h3 {
         @extend .sect3__block__h2;
+        margin-bottom: 0px;
+        max-width: 400px;
 
         &--col {
             @extend .sect3__block__h2--col;
@@ -398,9 +427,13 @@
         justify-content: space-between;
 
         &__item {
-            max-width: 370px;
-            height: 340px;
+            max-width: 32%;
+            
             position: relative;
+
+            & img {
+                width: 100%;
+            }
 
 
             &--marg {
@@ -461,13 +494,14 @@
         padding-bottom: 100px;
 
         &--left {
-            max-width: 470px;
+            max-width: 40%;
         }
     }
 
     &__h2 {
         @include text ($font2, 400, 40px, 39px, $colwhite);
         margin-bottom: 29px;
+        margin-top: 21px;
 
         &--col {
             color: $coltext-blue;
@@ -481,10 +515,11 @@
     }
 
     .form {
-        max-width: 470px;
+        max-width: 40%;
         display: flex;
         width: 100%;
         height: 100%;
+        margin-left: 20px;
     
         & input[type="text"],
         & input[type="email"],
@@ -514,29 +549,26 @@
     
         & input[type="submit"] {
             border: none;
-           
             background: transparent;
         }
     
         &__button {
             display: flex;
-           
     
             &__item {
                 @extend .sect1__link;
                 position: relative;
                 width: 100%;
                 display: flex;
-                cursor: pointer;
+                cursor: pointer;    
             }
-    
     
             &__bg {
                 @extend .sect1__link__bg;
                 position: absolute;
                 top:50%;
                 cursor: pointer;
-                
+                animation: pulse 2s infinite;
             }
     
         }
@@ -565,6 +597,12 @@
 
             &--marg {
                 margin-right: 32px;
+            }
+        }
+
+        &__hov {
+            &--marg {
+                margin: 0 20px;
             }
         }
 
