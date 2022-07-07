@@ -58,7 +58,7 @@
 
     &__h1 {
         @include text ($font2, 400, 44px, 52px, $colwhite);
-        max-width: 600px;
+        max-width: 523px;
 
         &--col {
             color: $coltext-blue;

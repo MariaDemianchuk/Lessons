@@ -1,12 +1,3 @@
-.header__bg {
-  background: url(/project1/assets/images/first-screen-image.png), linear-gradient(183.11deg, rgba(22, 25, 38, 0) 46.73%, #161926 63.21%);
-  background-position: initial, right;
-  background-repeat: no-repeat;
-  top: 0;
-  width: 100%;
-  z-index: 7;
-}
-
 *,
 ::after,
 ::before {
@@ -25,7 +16,7 @@ ul li {
 }
 
 .body__bg {
-  background: url(/project1/assets/images/first-screen-image.png), linear-gradient(183.11deg, rgba(22, 25, 38, 0) 46.73%, #161926 63.21%), #161926;
+  background: url(/project1/assets/images/bg.svg), linear-gradient(183.11deg, rgba(22, 25, 38, 0) 46.73%, #161926 63.21%), #161926;
   background-repeat: no-repeat, no-repeat, repeat;
   background-size: contain;
 }
@@ -117,7 +108,7 @@ ul li {
   font-size: 44px;
   line-height: 52px;
   color: #FFFFFF;
-  max-width: 600px;
+  max-width: 523px;
 }
 .sect1__h1--col, .sect3__block__h2--col, .sect7__h3--col, .sect5__h2--col {
   color: #689FF2;
