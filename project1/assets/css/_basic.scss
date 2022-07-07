@@ -16,7 +16,8 @@ ul li {
 }
 
 .body__bg {
-    background-image: url(/project1/assets/images/bg.svg), $coldarkblue;
+    background-image: url(/project1/assets/images/bg.png), $coldarkblue;
+    background: url(/project1/assets/images/bg.svg), $coldarkblue;
     background-repeat: no-repeat, repeat;
     background-size: contain;
 }
