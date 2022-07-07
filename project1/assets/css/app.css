@@ -16,7 +16,7 @@ ul li {
 }
 
 .body__bg {
-  background: url(/project1/assets/images/bg.svg), #161926;
+  background-image: url(/project1/assets/images/bg.svg), #161926;
   background-repeat: no-repeat, repeat;
   background-size: contain;
 }
