@@ -1,6 +1,49 @@
+#mobile_menu {
+    display: none;
+
+    &:checked {
+
+        &+.header .header__nav {
+            transform: translateX(-100%);
+        }
+
+        &+.header .header__burger {
+            border-color: transparent;
+
+            &::before {
+                transform: rotate(45deg);
+            }
+
+            &::after {
+                transform: rotate(-45deg);
+            }
+        }
+
+        &~main .overlay {
+            z-index: 2;
+            opacity: 1;
+        }
+    }
+}
+
+.main__container {
+    @include container (90%);
+
+    .overlay {
+        position: fixed;
+        top: 79px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        z-index: -1;
+        background-color: $coloverlay;
+    }
+}
+
 .header {
     height: 80px;
-    background: linear-gradient(270deg, rgba(22, 25, 38, 0.5) 0%, rgba(22, 25, 38, 0) 24.1%, rgba(22, 25, 38, 0) 47.19%), rgba(22, 25, 38, 0.02);
+    background: $coldarkbluegrad;
     backdrop-filter: blur(9px);
     -webkit-backdrop-filter: blur(9px);
     margin-bottom: 150px;
@@ -8,6 +51,11 @@
     top: 0;
     z-index: 3;
 
+    @include media ($width12) {
+        position: fixed;
+        width: 100%;
+        background: $coldarkblue-op;
+    }
 
     &__container {
         @include container (90%);
@@ -16,11 +64,43 @@
         align-items: center;
         margin-top: 30px;
         height: 100%;
+
+        @include media ($width12) {
+            margin-top: 0;
+        }
+    }
+
+    &__nav {
+        @include media ($width12) {
+            position: fixed;
+            width: 30%;
+            height: 1000%;
+            margin: 0 auto;
+            top: 80px;
+            right: 0;
+            left: 100%;
+            bottom: 0;
+            background: $coldarkblue-op;
+            padding: 20px 0 20px 10px;
+            z-index: 2;
+            transition-duration: 1s;
+            transition-property: transform;
+            transition-timing-function: ease;
+            transform: translateX(0);
+        }
+
+        @include media ($width141) {
+            width: 60%;
+        }
     }
 
     &__menu {
         display: flex;
         justify-content: space-between;
+
+        @include media ($width12) {
+            flex-direction: column;
+        }
     }
 
     &__menu__item {
@@ -45,20 +125,84 @@
         opacity: 0.3;
     }
 
-}
+    &__burger {
+        display: none;
+        position: relative;
+        width: 30px;
+        height: 14px;
+        background: transparent;
+        border-top: 2px solid;
+        border-bottom: 2px solid;
+        color: $colwhite;
+        font-size: 0;
+        transition-duration: 0.3s;
+        transition-property: all;
+        transition-timing-function: ease;
 
-.main__container {
-    @include container (90%);
-}
+        @include media ($width12) {
+            display: flex;
+            align-items: center;
+        }
 
+        &::after,
+        &::before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: $colwhite;
+            position: absolute;
+            left: 0;
+            transition-duration: 0.3s;
+            transition-property: transform;
+            transition-timing-function: ease;
+        }
+    }
+
+}
 
 .sect1 {
     margin-top: 260px;
     margin-bottom: 150px;
 
+    @include media ($width8) {
+        margin-top: 200px;
+        margin-bottom: 100px;
+    }
+
+    @include media ($width9) {
+        margin-top: 100px;
+    }
+
+    @include media ($width12) {
+        margin-top: 150px;
+        margin-bottom: 75px;
+    }
+
     &__h1 {
         @include text ($font2, 400, 44px, 52px, $colwhite);
         max-width: 523px;
+
+
+        @include media ($width9) {
+            font-size: 39px;
+            line-height: 47px;
+        }
+
+        @include media ($width13) {
+            max-width: 423px;
+        }
+
+        @include media ($width14) {
+            max-width: 323px;
+            font-size: 29px;
+            line-height: 37px;
+        }
+
+        @include media ($width15) {
+            font-size: 19px;
+            line-height: 27px;
+        }
 
         &--col {
             color: $coltext-blue;
@@ -71,6 +215,24 @@
         margin-top: 20px;
         margin-bottom: 50px;
         max-width: 439px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        @include media ($width13) {
+            max-width: 339px;
+        }
+
+        @include media ($width14) {
+            font-size: 14px;
+            line-height: 22px;
+            max-width: 239px;
+        }
+
+        @include media ($width15) {
+            font-size: 10px;
+            line-height: 18px;
+        }
+
     }
 
     &__button {
@@ -81,6 +243,11 @@
         @include text ($font1, 700, 20px, 20px, $coltext_green-neon);
         letter-spacing: 0.08em;
         text-transform: uppercase;
+
+        @include media ($width142) {
+            font-size: 16px;
+            line-height: 16px;
+        }
 
         &__bg {
             display: block;
@@ -108,6 +275,11 @@
 .sect2 {
     padding-bottom: 120px;
 
+    @include media ($width131) {
+        padding-bottom: 60px;
+    }
+
+
     &__container {
         display: flex;
         position: relative;
@@ -123,22 +295,105 @@
 
     &__block2 {
         background-color: $coldarkblue-op;
-        width: 70%;
+        max-width: 70%;
         display: flex;
         justify-content: center;
+        align-items: center;
         z-index: 1;
         position: absolute;
         top: 6.7%;
+        bottom: 6.7%;
         left: 34%;
-        max-width: 66%;
         padding: 45px 0;
+
+        @include media ($width3) {
+            padding: 40px 0;
+        }
+
+
+        @include media ($width4) {
+            padding: 30px 0;
+        }
+
+        @include media ($width6) {
+            padding: 25px 0;
+        }
+
+
+        @include media ($width7) {
+            padding: 15px 0;
+        }
+
+
+        @include media ($width81) {
+            justify-content: space-between;
+        }
+
+        @include media ($width111) {
+            left: 24%;
+        }
+
+        @include media ($width131) {
+            left: 14%;
+            max-width: 80%;
+        }
+
+        @include media ($width141) {
+            left: 5%;
+            max-width: 90%;
+        }
+
+        @include media ($width142) {
+            top: 2%;
+            bottom: 5%;
+        }
+
+        @include media ($width143) {
+            left: 1%;
+            max-width: 99%;
+        }
+
+        @include media ($width144) {
+            justify-content: center;
+        }
+
+
 
         &__lft {
             margin: 0 56px;
+
+            @include media ($width81) {
+                margin: 0 36px;
+            }
+
+            @include media ($width13) {
+                margin: 0 16px;
+            }
+
+
+            @include media ($width144) {
+                display: none;
+            }
         }
 
         &__rgt {
             max-width: 52%;
+
+            @include media ($width81) {
+                & br {
+                    display: none;
+                }
+            }
+
+            @include media ($width111) {
+                max-width: 55%;
+            }
+
+
+            @include media ($width144) {
+                padding: 5px 20px;
+                max-width: 100%;
+            }
         }
     }
 
@@ -153,11 +408,53 @@
         @include text ($font2, 400, 68px, 72px, $colwhite);
         display: flex;
 
+        @include media ($width1) {
+            font-size: 60px;
+            line-height: 64px;
+        }
+
+        @include media ($width3) {
+            font-size: 50px;
+            line-height: 54px;
+        }
+
+        @include media ($width6) {
+            font-size: 40px;
+            line-height: 44px;
+        }
+
+        @include media ($width71) {
+            font-size: 30px;
+            line-height: 34px;
+        }
+
+        @include media ($width141) {
+            font-size: 20px;
+            line-height: 24px;
+        }
+
+
+
         &--icon {
             @include text ($font2, 400, 40px, 50px, $colwhite);
             display: flex;
             align-items: end;
             padding-right: 10px;
+
+            @include media ($width71) {
+                font-size: 30px;
+                line-height: 40px;
+            }
+
+            @include media ($width71) {
+                font-size: 20px;
+                line-height: 30px;
+            }
+
+            @include media ($width141) {
+                font-size: 14px;
+                line-height: 18px;
+            }
         }
     }
 
@@ -167,6 +464,24 @@
         opacity: 0.8;
         margin-top: 12px;
         margin-bottom: 40px;
+
+        @include media ($width71) {
+            font-size: 14px;
+            line-height: 22px;
+
+            @include media ($width12) {
+                margin-bottom: 20px;
+            }
+
+            @include media ($width13) {
+                margin-bottom: 10px;
+            }
+
+            @include media ($width142) {
+                margin-bottom: 5px;
+                margin-top: 5px;
+            }
+        }
 
         &--marg {
             margin-bottom: 0px;
@@ -179,24 +494,90 @@
         height: 1px;
         border-color: $colgreen-spring;
         margin-bottom: 40px;
+
+        @include media ($width7) {
+            margin-bottom: 20px;
+        }
+
+        @include media ($width12) {
+            margin-bottom: 20px;
+        }
+
+
+        @include media ($width13) {
+            margin-bottom: 10px;
+        }
     }
 
     &__text__rght {
         @extend .sect2__text;
         margin: 0;
+
+        @include media ($width7) {
+            font-size: 16px;
+            line-height: 22px;
+        }
+
+        @include media ($width81) {
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        @include media ($width141) {
+            font-size: 12px;
+            line-height: 18px;
+        }
+    }
+
+    &__text__rght--marg {
+        @include media ($width81) {
+            margin-bottom: 20px;
+        }
+
+        @include media ($width143) {
+            margin-bottom: 10px;
+        }
+
+    }
+
+    &__text__rght--disp {
+        @include media ($width13) {
+            display: none;
+        }
+    }
+
+    &__text__rght--end {
+        @include media ($width16) {
+            display: none;
+        }
+
     }
 
     &__button {
         display: flex;
         margin-top: 50px;
+
+        @include media ($width81) {
+            margin-top: 30px;
+        }
+
+        @include media ($width142) {
+            margin-top: 10px;
+        }
+
     }
 
     &__link {
         @extend .sect1__link;
 
+        @include media ($width142) {
+            font-size: 16px;
+            line-height: 16px;
+        }
+
         &__bg {
             @extend .sect1__link__bg;
-           
+
         }
     }
 
@@ -204,14 +585,27 @@
 
 .sect3 {
 
-
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 30px;
 
+
+    @include media ($width142) {
+        grid-template-columns: 1fr;
+    }
+
     &__block {
         border-top: 1px solid $colgray-dark;
         padding: 50px 35px 52px;
+
+        @include media ($width111) {
+            padding: 40px 25px 42px;
+        }
+
+        @include media ($width13) {
+            padding: 20px 5px 22px;
+        }
+
     }
 
     &__block__h2 {
@@ -221,6 +615,23 @@
         margin-bottom: 30px;
         max-width: 500px;
 
+        @include media ($width7) {
+            font-size: 30px;
+            line-height: 38px;
+            margin-bottom: 10px;
+            max-width: 400px;
+        }
+
+        @include media ($width10) {
+            font-size: 20px;
+            line-height: 28px;
+        }
+
+        @include media ($width141) {
+            font-size: 16px;
+            line-height: 22px;
+        }
+
         &--col {
             @extend .sect1__h1--col;
         }
@@ -229,12 +640,26 @@
     &__block__text {
         @extend .sect2__text;
         max-width: 500px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        @include media ($width10) {
+            margin-bottom: 10px;
+        }
+
+        @include media ($width141) {
+            font-size: 12px;
+            line-height: 20px;
+        }
     }
 }
 
 .sect4 {
-    @include container (90%);
     margin-bottom: 120px;
+
+    @include media ($width131) {
+        margin-bottom: 60px;
+    }
 
     &__bg {
         position: relative;
@@ -243,12 +668,63 @@
         & img {
             max-width: 100%;
             height: 400px;
+
+            @include media ($width7) {
+                height: 350px;
+            }
+
+            @include media ($width12) {
+                height: 300px;
+            }
+
+            @include media ($width142) {
+                height: 250px;
+            }
+
+            @include media ($width144) {
+                height: 200px;
+            }
+
+            @include media ($width144) {
+                height: 150px;
+            }
         }
 
         & svg {
             position: absolute;
             left: 101px;
             top: 72px;
+
+            @include media ($width8) {
+                left: 81px;
+                top: 62px;
+            }
+
+            @include media ($width12) {
+                left: 61px;
+            }
+
+            @include media ($width14) {
+                left: 41px;
+            }
+
+            @include media ($width142) {
+                left: 21px;
+            }
+
+            @include media ($width144) {
+                top: 22px;
+                width: 82px;
+                height: 64px;
+            }
+
+            @include media ($width15) {
+                top: 10px;
+                left: 10px;
+                width: 62px;
+                height: 44px;
+            }
+
         }
 
         &__text {
@@ -259,11 +735,91 @@
             top: 100px;
             max-width: 710px;
 
+            @include media ($width6) {
+                font-size: 25px;
+                line-height: 39px;
+            }
+
+            @include media ($width7) {
+                font-size: 20px;
+                line-height: 34px;
+            }
+
+            @include media ($width8) {
+                margin-left: 140px;
+                top: 90px;
+                max-width: 510px;
+            }
+
+            @include media ($width12) {
+                font-size: 16px;
+                line-height: 24px;
+                margin-left: 120px;
+                top: 95px;
+                max-width: 410px;
+            }
+
+            @include media ($width14) {
+                margin-left: 100px;
+            }
+
+            @include media ($width142) {
+                font-size: 12px;
+                line-height: 20px;
+                margin-left: 80px;
+                top: 100px;
+            }
+
+            @include media ($width144) {
+                top: 40px;
+                margin-left: 70px;
+            }
+
+            @include media ($width15) {
+                margin-left: 50px;
+                top: 30px;
+            }
+
+            @include media ($width17) {
+                font-size: 10px;
+                line-height: 16px;
+            }
+
             &--sign {
                 @include text ($font2, 400, 20px, 20px, $colwhite);
                 letter-spacing: 0.08em;
                 padding-top: 40px;
                 padding-bottom: 100px;
+
+                @include media ($width7) {
+                    padding-bottom: 70px;
+                }
+
+                @include media ($width12) {
+                    font-size: 16px;
+                    line-height: 16px;
+                }
+
+                @include media ($width14) {
+                    padding-bottom: 50px;
+                }
+
+                @include media ($width142) {
+                    font-size: 12px;
+                    line-height: 12px;
+                    padding-bottom: 20px;
+                    padding-top: 20px;
+                }
+
+                @include media ($width15) {
+                    padding-bottom: 10px;
+                    padding-top: 10px;
+                }
+
+                @include media ($width17) {
+                    font-size: 10px;
+                    line-height: 10px;
+                }
             }
         }
     }
@@ -275,6 +831,14 @@
     flex-direction: column;
     margin-bottom: 120px;
 
+    @include media ($width131) {
+        margin-bottom: 60px;
+    }
+
+    @include media ($width15) {
+        margin-bottom: 30px;
+    }
+
     &__wrapper {
         border: 1px solid $colgray-dark;
         border-radius: 32px;
@@ -283,6 +847,71 @@
         align-items: center;
         padding: 31px 0;
         max-width: 970px;
+
+        @include media ($width6) {
+            & iframe {
+                max-width: 90%;
+            }
+        }
+
+        @include media ($width6) {
+            & iframe {
+                height: 500px;
+            }
+        }
+
+        @include media ($width81) {
+            & iframe {
+                height: 450px;
+            }
+        }
+
+        @include media ($width10) {
+            & iframe {
+                height: 400px;
+            }
+        }
+
+        @include media ($width11) {
+            & iframe {
+                height: 350px;
+            }
+        }
+
+        @include media ($width12) {
+            & iframe {
+                height: 300px;
+            }
+        }
+
+        @include media ($width141) {
+            & iframe {
+                height: 250px;
+            }
+        }
+
+        @include media ($width142) {
+            justify-content: center;
+
+            & iframe {
+                height: 200px;
+            }
+        }
+
+
+        @include media ($width144) {
+            padding: 31px 25px;
+
+            & iframe {
+                height: 150px;
+            }
+        }
+
+        @include media ($width16) {
+            padding: 10px;
+
+        }
+
     }
 
     &__circle__little {
@@ -292,6 +921,15 @@
         width: 13px;
         height: 13px;
         margin: 0 9px;
+
+        @include media ($width12) {
+            width: 8px;
+            height: 8px;
+        }
+
+        @include media ($width144) {
+            display: none;
+        }
     }
 
     &__circle__big {
@@ -300,6 +938,13 @@
         height: 35px;
         margin-left: 21px;
         margin-right: 14px;
+
+        @include media ($width12) {
+            width: 25px;
+            height: 25px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
     }
 
     &:hover &__wrapper,
@@ -331,6 +976,10 @@
 .sect6 {
     margin-bottom: 120px;
 
+    @include media ($width131) {
+        margin-bottom: 60px;
+    }
+
     &__block {
         display: flex;
         position: relative;
@@ -342,6 +991,10 @@
             & img {
                 width: 100%;
             }
+
+            @include media ($width144) {
+                display: none;
+            }
         }
     }
 
@@ -350,33 +1003,124 @@
         grid-template-columns: repeat(2, 1fr);
         column-gap: 100px;
         row-gap: 70px;
-
         background-color: $coldarkblue-op;
-        width: 70%;
         z-index: 1;
         position: absolute;
         top: 8.33%;
-        left: 399px;
-        max-width: 66%;
-        height: 450px;
+        bottom: 8.33%;
+        left: 34%;
+        max-height: 450px;
         padding: 75px 0px 75px 70px;
+
+        @include media ($width1) {
+            column-gap: 70px;
+        }
+
+        @include media ($width2) {
+            column-gap: 50px;
+            row-gap: 50px;
+            padding: 65px 0px 65px 60px;
+        }
+
+        @include media ($width3) {
+            column-gap: 30px;
+            row-gap: 30px;
+            padding: 55px 0px 55px 50px;
+        }
+
+        @include media ($width4) {
+            column-gap: 8px;
+            row-gap: 8px;
+            padding: 45px 0px 45px 35px;
+        }
+
+        @include media ($width6) {
+            column-gap: 5px;
+            row-gap: 5px;
+            padding: 35px 0px 35px 30px;
+        }
+
+        @include media ($width61) {
+            left: 25%;
+            padding: 30px 0px 30px 25px;
+            top: 5.33%;
+            bottom: 5.33%;
+        }
+
+        @include media ($width80) {
+            left: 15%;
+            padding: 25px 0px 25px 20px;
+            top: 3.33%;
+            bottom: 3.33%;
+        }
+
+        @include media ($width11) {
+            left: 10%;
+            padding: 15px 0px 15px 10px;
+
+        }
+
+        @include media ($width141) {
+            left: 5%;
+            padding: 10px 0px 10px 10px;
+            top: 1.33%;
+            bottom: 1.33%;
+        }
+
+        @include media ($width143) {
+            left: 0;
+            padding: 5px 0px 5px 5px;
+            top: 0;
+            bottom: 0;
+        }
+
+        @include media ($width144) {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            width: 100%;
+            margin-bottom: 20px;
+        }
 
         &__item {
             max-width: 300px;
-
         }
 
         &__h4 {
             @include text ($font2, 400, 24px, 48px, $colwhite);
+
+            @include media ($width8) {
+                font-size: 20px;
+                line-height: 40px;
+            }
+
+            @include media ($width12) {
+                font-size: 15px;
+                line-height: 30px;
+            }
         }
 
         &__text {
             @include text ($font1, 300, 18px, 26px, $colwhite);
             opacity: 0.8;
 
+            @include media ($width8) {
+                font-size: 14px;
+                line-height: 22px;
+            }
+
+            @include media ($width12) {
+                font-size: 12px;
+                line-height: 20px;
+            }
+
             &--marg {
                 margin-bottom: 18px;
                 margin-top: 15px;
+
+                @include media ($width5) {
+                    margin: 5px 0;
+                }
             }
         }
     }
@@ -385,18 +1129,67 @@
         display: flex;
         border: 1px solid $colgray-dark;
         align-self: baseline;
+        justify-content: center;
+        align-items: center;
         animation: pulse 2s infinite;
 
         &:hover {
             border-color: $coltext_green-neon-dark;
         }
+
+        @include media ($width144) {
+            margin-top: 10px;
+        }
     }
+
     &__link {
         @extend .sect1__link;
         padding: 33px 91px;
 
+        @include media ($width31) {
+            padding: 33px 89px;
+        }
+
+        @include media ($width12) {
+            padding: 30px 80px;
+        }
+
+        @include media ($width13) {
+            padding: 28px 70px;
+        }
+
+        @include media ($width13) {
+            padding: 25px 65px;
+        }
+
+        @include media ($width140) {
+            padding: 25px 55px;
+        }
+
+        @include media ($width141) {
+            padding: 20px 50px;
+            font-size: 16px;
+            line-height: 16px;
+        }
+
+        @include media ($width142) {
+            padding: 20px 40px;
+        }
+
+        @include media ($width143) {
+            padding: 20px 30px;
+            font-size: 14px;
+            line-height: 14px;
+        }
+
         &__bg {
-            @extend .sect1__link__bg;
+            display: block;
+            background-color: $coltext_green-neon_op;
+            width: 95%;
+            height: 13px;
+            position: relative;
+            left: 10px;
+            top: -10px;
             animation: none;
         }
     }
@@ -404,6 +1197,10 @@
 
 .sect7 {
     margin-bottom: 100px;
+
+    @include media ($width131) {
+        margin-bottom: 50px;
+    }
 
     &__h3 {
         @extend .sect3__block__h2;
@@ -426,21 +1223,34 @@
         display: flex;
         justify-content: space-between;
 
+        @include media ($width14) {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
         &__item {
             max-width: 32%;
-            
             position: relative;
+
+            @include media ($width14) {
+                max-width: 100%;
+                margin-bottom: 30px;
+            }
 
             & img {
                 width: 100%;
             }
 
-
             &--marg {
                 margin-left: 30px;
                 margin-right: 30px;
-            }
 
+                @include media ($width111) {
+                    margin-left: 10px;
+                    margin-right: 10px;
+                }
+            }
         }
 
         &__img {
@@ -457,22 +1267,93 @@
             width: 100%;
             height: 100%;
 
+            @include media ($width2) {
+                transition: transform 2s;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+
+            @include media ($width3) {
+                padding: 25px 35px;
+            }
+
+            @include media ($width31) {
+                padding: 20px 30px;
+
+                &:hover {
+                    transform: scale(1.2);
+                }
+            }
+
+            @include media ($width7) {
+                transition: none;
+
+                &:hover {
+                    transform: scale(1);
+                }
+            }
+
+            @include media ($width9) {
+                padding: 10px 15px;
+            }
+
+            @include media ($width13) {
+                padding: 5px 10px;
+            }
+
+
             .text {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
                 height: 100%;
 
+                @include media ($width14) {
+                    justify-content: space-evenly;
+                }
+
                 &__top {
                     @include text ($font1, 400, 16px, 26px, $colwhite);
                     opacity: 0.8;
                     margin-bottom: 26px;
+                    overflow: hidden;
 
+                    @include media ($width2) {
+                        font-size: 14px;
+                        line-height: 24px;
+                    }
+
+                    @include media ($width31) {
+                        font-size: 12px;
+                        line-height: 22px;
+                    }
+
+                    @include media ($width7) {
+                        overflow: scroll;
+                    }
                 }
 
                 &__bottom {
                     @include text ($font2, 400, 20px, 20px, $colwhite);
                     letter-spacing: 0.08em;
+
+
+                    @include media ($width31) {
+                        font-size: 18px;
+                        line-height: 18px;
+                    }
+
+                    @include media ($width9) {
+                        font-size: 16px;
+                        line-height: 16px;
+                    }
+
+                    @include media ($width9) {
+                        font-size: 14px;
+                        line-height: 14px;
+                    }
                 }
             }
         }
@@ -485,7 +1366,7 @@
 
 .footer {
     border-top: 1px solid $colgray-dark;
-  
+
     &__block1 {
         display: flex;
         justify-content: space-between;
@@ -493,8 +1374,22 @@
         border-bottom: 1px solid $colgray-dark;
         padding-bottom: 100px;
 
+        @include media ($width9) {
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 50px;
+        }
+
+        @include media ($width142) {
+            margin-top: 30px;
+        }
+
         &--left {
-            max-width: 40%;
+            max-width: 50%;
+
+            @include media ($width9) {
+                max-width: 100%;
+            }
         }
     }
 
@@ -502,6 +1397,17 @@
         @include text ($font2, 400, 40px, 39px, $colwhite);
         margin-bottom: 29px;
         margin-top: 21px;
+
+
+        @include media ($width8) {
+            font-size: 29px;
+            line-height: 29px;
+        }
+
+        @include media ($width142) {
+            font-size: 24px;
+            line-height: 24px;
+        }
 
         &--col {
             color: $coltext-blue;
@@ -512,67 +1418,84 @@
         @include text ($font1, 300, 18px, 26px, $colwhite);
         opacity: 0.8;
 
+        @include media ($width8) {
+            font-size: 14px;
+            line-height: 22px;
+        }
+
+        @include media ($width142) {
+            font-size: 12px;
+            line-height: 20px;
+        }
     }
 
     .form {
-        max-width: 40%;
         display: flex;
-        width: 100%;
-        height: 100%;
         margin-left: 20px;
-    
+
+
+        @include media ($width9) {
+            margin-top: 30px;
+            margin-left: 0px;
+        }
+
         & input[type="text"],
         & input[type="email"],
         & textarea {
-        box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        outline: none;
-        display: block;
-        width: 100%;
-        padding-bottom: 12px;
-        border: none;
-        border-bottom: 1px solid $colwhite-op;
-        background: transparent;
-        margin-bottom: 40px;
-        height: 32px;
-        width: 470px;
-        @include text ($font2, 400, 18px, 20px, $colwhite);
-        letter-spacing: 0.08em;
-        font-style: italic;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            outline: none;
+            display: block;
+            padding-bottom: 12px;
+            border: none;
+            border-bottom: 1px solid $colwhite-op;
+            background: transparent;
+            margin-bottom: 40px;
+            height: 32px;
+            max-width: 470px;
+            @include text ($font2, 400, 18px, 20px, $colwhite);
+            letter-spacing: 0.08em;
+            font-style: italic;
+
+        @include media ($width142) {
+            font-size: 14px;
+            line-height: 16px;
         }
-    
+
+        }
+
         & textarea {
             resize: none;
             overflow: hidden;
         }
-    
+
         & input[type="submit"] {
             border: none;
             background: transparent;
         }
-    
+
         &__button {
             display: flex;
-    
+
             &__item {
                 @extend .sect1__link;
                 position: relative;
                 width: 100%;
                 display: flex;
-                cursor: pointer;    
+                cursor: pointer;
             }
-    
+
             &__bg {
                 @extend .sect1__link__bg;
                 position: absolute;
-                top:50%;
+                top: 50%;
                 cursor: pointer;
                 animation: pulse 2s infinite;
             }
-    
+
         }
-    
+
     }
 
     &__block2 {
@@ -580,6 +1503,12 @@
         justify-content: space-between;
         align-items: center;
         padding: 30px 0;
+
+        @include media ($width142) {
+            flex-direction: column;
+            justify-content: center;
+
+        }
 
         &__text {
             @include text ($font1, 300, 14px, 26px, $colwhite);
@@ -593,6 +1522,14 @@
 
             &--padd {
                 padding-left: 12px;
+
+                @include media ($width111) {
+                    padding-left: 0px;
+                }
+
+                @include media ($width142) {
+                    padding-left: 12px;
+                }
             }
 
             &--marg {
@@ -606,7 +1543,7 @@
             }
         }
 
-        &__hov:hover  &__link {
+        &__hov:hover &__link {
             color: $coltext_green-neon;
         }
 
@@ -617,5 +1554,3 @@
     }
 
 }
-
-
