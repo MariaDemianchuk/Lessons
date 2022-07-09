@@ -1628,7 +1628,7 @@
             background: transparent;
             margin-bottom: 40px;
             height: 32px;
-            max-width: 470px;
+            width: 470px;
             @include text ($font2, 400, 18px, 20px, $colwhite);
             letter-spacing: 0.08em;
             font-style: italic;
@@ -1658,7 +1658,6 @@
             &__item {
                 @extend .sect1__link;
                 position: relative;
-                width: 100%;
                 display: -webkit-box;
                 display: -ms-flexbox;
                 display: flex;
