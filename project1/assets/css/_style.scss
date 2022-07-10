@@ -85,7 +85,7 @@
     &__nav {
         @include media ($width12) {
             position: fixed;
-            width: 30%;
+            width: 60%;
             height: 1000%;
             margin: 0 auto;
             top: 80px;
@@ -93,7 +93,7 @@
             left: 100%;
             bottom: 0;
             background: $coldarkblue-op;
-            padding: 20px 0 20px 10px;
+            padding: 20px 0 20px 20px;
             z-index: 2;
             -webkit-transition-duration: 1s;
             -o-transition-duration: 1s;
@@ -111,8 +111,9 @@
             transform: translateX(0);
         }
 
-        @include media ($width141) {
-            width: 60%;
+        @include media ($width142) {
+            width: 100%;
+            padding-left: 40px;
         }
     }
 
@@ -350,9 +351,9 @@
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
@@ -901,20 +902,41 @@
     }
 }
 
+#video {
+    display: none;
+
+    &:checked {
+
+        &~.sect5 .sect5__overlay img {
+            display: none;
+        }
+
+        &~.sect5 .sect5__overlay svg,
+        &~.sect5 .sect5__overlay span {
+            opacity: 0.01;
+        }
+
+        &~.sect5 .sect5__overlay iframe {
+            opacity: 1;
+        }
+    }
+}
+
 .sect5 {
+    margin: 0 8%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
     margin-bottom: 120px;
+    max-width: 970px;
+
 
     @include media ($width131) {
+        margin: 0;
         margin-bottom: 60px;
     }
 
@@ -932,22 +954,15 @@
         -ms-flex-pack: justify;
         justify-content: space-between;
         -webkit-box-align: center;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         -ms-flex-align: center;
         align-items: center;
         padding: 31px 0;
-        max-width: 970px;
+
+
 
         @include media ($width6) {
             & iframe {
                 max-width: 90%;
-            }
-        }
-
-        @include media ($width6) {
-            & iframe {
                 height: 500px;
             }
         }
@@ -980,12 +995,14 @@
             & iframe {
                 height: 250px;
             }
+            padding: 25px 20px;
         }
 
         @include media ($width142) {
             -webkit-box-pack: center;
             -ms-flex-pack: center;
             justify-content: center;
+            padding: 21px 15px;
 
             & iframe {
                 height: 200px;
@@ -996,8 +1013,6 @@
 
 
         @include media ($width144) {
-            padding: 31px 25px;
-
             & iframe {
                 height: 150px;
             }
@@ -1025,7 +1040,7 @@
             height: 8px;
         }
 
-        @include media ($width144) {
+        @include media ($width141) {
             display: none;
         }
     }
@@ -1036,6 +1051,11 @@
         height: 35px;
         margin-left: 21px;
         margin-right: 14px;
+
+        @include media ($width6) {
+            width: 29px;
+            height: 29px;
+        }
 
         @include media ($width12) {
             width: 25px;
@@ -1049,6 +1069,89 @@
     &:hover &__circle__little,
     &:hover &__circle__big {
         border-color: $colwhite;
+    }
+
+    &__circle__play {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        border: 1px solid $coltext-blue;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        position: absolute;
+        background-color: $coltext-blue;
+        opacity: 0.2;
+
+        @include media ($width31){
+            width: 100px;
+            height: 100px;
+        }
+
+        @include media ($width8){
+            width: 80px;
+            height: 80px;
+        }
+
+        @include media ($width141){
+            width: 60px;
+            height: 60px;
+        }
+
+        @include media ($width142){
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    &__overlay {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 90%;
+        
+        & img {
+            position: absolute;
+            z-index: 2;
+            background-color: $coldarkblue;
+            border-radius: 8px;
+            opacity: 0.2;
+            width: 100%;
+        }
+
+        & iframe {
+            opacity: 0;
+        }
+
+        & svg {
+            position: absolute;
+
+            @include media ($width31){
+                width: 29px;
+                height: 31px;
+            }
+
+            @include media ($width8){
+                width: 25px;
+                height: 26px;
+            }
+
+            @include media ($width141){
+                width: 21px;
+                height: 22px;
+            }
+
+            @include media ($width142){
+                width: 19px;
+                height: 20px;
+            }
+        }
+    }
+
+    &:hover &__circle__play,
+    &:hover &__overlay img {
+        opacity: 0.4;
     }
 
     &__h2 {
@@ -1070,6 +1173,7 @@
     }
 
 }
+
 
 .sect6 {
     margin-bottom: 120px;
@@ -1633,9 +1737,26 @@
             letter-spacing: 0.08em;
             font-style: italic;
 
+            @include media ($width141) {
+                width: 400px;
+            }
+
             @include media ($width142) {
                 font-size: 14px;
                 line-height: 16px;
+                width: 350px;
+            }
+
+            @include media ($width144) {
+                width: 320px;
+            }
+
+            @include media ($width15) {
+                width: 270px;
+            }
+
+            @include media ($width16) {
+                width: 240px;
             }
 
         }
@@ -1687,7 +1808,7 @@
         align-items: center;
         padding: 30px 0;
 
-        @include media ($width142) {
+        @include media ($width141) {
             -webkit-box-orient: vertical;
             -webkit-box-direction: normal;
             -ms-flex-direction: column;
@@ -1714,7 +1835,7 @@
                     padding-left: 0px;
                 }
 
-                @include media ($width142) {
+                @include media ($width141) {
                     padding-left: 12px;
                 }
             }
