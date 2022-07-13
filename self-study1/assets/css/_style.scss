@@ -1,0 +1,229 @@
+.blocks {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 673px;
+}
+
+.block {
+    background-color: $colgrey;
+    width: 370px;
+    height: 93%;
+
+
+    &:hover {
+        -webkit-transform: scale(1.08);
+        -ms-transform: scale(1.08);
+        transform: scale(1.08);
+        height: 100%;
+    }
+
+    &:hover .block__hover {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+
+    &:hover .block__header {
+        padding-top: 50px;
+        padding-bottom: 40px;
+    }
+
+    &:hover .block__bottom {
+        padding-top: 30px;
+        padding-bottom: 60px;
+        height: 92px;
+    }
+
+    &:hover .block__bottom p {
+        padding-top: 20px;
+    }
+
+    &:hover .block__bottom button {
+        position: absolute;
+        bottom: 50px;
+        background-color: $colred;
+        border-color: $colred;
+    }
+
+    &__hover {
+        padding: 16px;
+        display: none;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        position: absolute;
+        width: 30%;
+        right: 60px;
+        z-index: 3;
+
+        &__svg {
+            width: 20px;
+            height: 17px;
+            -ms-flex-item-align: end;
+            align-self: flex-end;
+            position: absolute;
+            left: 139px;
+            top: 10px;
+        }
+
+        &__bl {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            position: absolute;
+            left: 80%;
+        }
+
+        &__circle {
+            background: $colred;
+            border-radius: 50%;
+            height: 48px;
+            width: 48px;
+            padding: 15px 15px 15px 20px;
+            @include text ($font1, 300, 24px, 24px, $colwhite);
+            letter-spacing: 0.08em;
+            right: 30px;
+            top: 16px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        &__label {
+            background-image: url(/self-study1/assets/images/tooltip_bg.png);
+            background-repeat: no-repeat;
+            z-index: 2;
+            margin-left: 5px;
+            width: 101px;
+            height: 30px;
+            padding: 8px 24px 6px 30px;
+            @include text ($font1, 400, 16px, 16px, $colwhite);
+            text-align: center;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+    }
+
+    &__header {
+        padding-top: 40px;
+        padding-bottom: 30px;
+
+        &__text {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: start;
+            -ms-flex-align: start;
+            align-items: flex-start;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            margin-bottom: 20px;
+
+
+            &--1 {
+                @include text ($font1, 100, 24px, 28px, $colblack);
+            }
+
+            &--2 {
+                @include text ($font1, 100, 60px, 60px, $colblack1);
+                letter-spacing: 0.08em;
+                -ms-flex-item-align: end;
+                align-self: flex-end;
+            }
+
+            &--3 {
+                @include text ($font1, 300, 16px, 16px, $colblack1);
+                letter-spacing: 0.08em;
+                -ms-flex-item-align: end;
+                align-self: flex-end;
+            }
+
+            &__bottom {
+                @include text ($font1, 300, 24px, 28px, $colblack1);
+                letter-spacing: 0.04em;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+            }
+
+        }
+    }
+
+    &__center {
+        background-image: url(/self-study1/assets/images/bg-image.png);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        padding-top: 40px;
+        padding-bottom: 30px;
+
+        &__svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        &__text {
+            @include text ($font2, 300, 16px, 20px, $colblack1);
+            letter-spacing: 0.04em;
+            padding-top: 40px;
+
+            & p {
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    &__bottom {
+        height: 57px;
+        padding-top: 30px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+
+        & p {
+            @include text ($font2, 300, 11px, 18px, $colgrey1);
+        }
+
+        & button {
+            border: 0;
+            background-color: $colblue-light;
+            border: 1px solid $colblue-light;
+            border-radius: 30px;
+            @include text ($font1, 400, 18px, 18px, $colwhite);
+            padding: 17px 50px;
+            position: absolute;
+        }
+    }
+
+}

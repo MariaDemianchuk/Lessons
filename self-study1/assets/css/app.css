@@ -1,0 +1,222 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 1s ease;
+}
+
+body {
+  background-color: #9789F9;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.blocks {
+  display: flex;
+  justify-content: space-between;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  align-items: center;
+  height: 673px;
+}
+
+.block {
+  background-color: #F5F3F9;
+  width: 370px;
+  height: 93%;
+}
+.block:hover {
+  transform: scale(1.08);
+  height: 100%;
+}
+.block:hover .block__hover {
+  display: flex;
+}
+.block:hover .block__header {
+  padding-top: 50px;
+  padding-bottom: 40px;
+}
+.block:hover .block__bottom {
+  padding-top: 30px;
+  padding-bottom: 60px;
+  height: 92px;
+}
+.block:hover .block__bottom p {
+  padding-top: 20px;
+}
+.block:hover .block__bottom button {
+  position: absolute;
+  bottom: 50px;
+  background-color: #FD8D7B;
+  border-color: #FD8D7B;
+}
+.block__hover {
+  padding: 16px;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  width: 30%;
+  right: 60px;
+  z-index: 3;
+}
+.block__hover__svg {
+  width: 20px;
+  height: 17px;
+  align-self: flex-end;
+  position: absolute;
+  left: 139px;
+  top: 10px;
+}
+.block__hover__bl {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  left: 80%;
+}
+.block__hover__circle {
+  background: #FD8D7B;
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+  padding: 15px 15px 15px 20px;
+  font-family: "bebas-neue-by-fontfabric";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 24px;
+  color: #FFFFFF;
+  letter-spacing: 0.08em;
+  right: 30px;
+  top: 16px;
+  display: flex;
+}
+.block__hover__label {
+  background-image: url(/self-study1/assets/images/tooltip_bg.png);
+  background-repeat: no-repeat;
+  z-index: 2;
+  margin-left: 5px;
+  width: 101px;
+  height: 30px;
+  padding: 8px 24px 6px 30px;
+  font-family: "bebas-neue-by-fontfabric";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  color: #FFFFFF;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: flex;
+}
+.block__header {
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+.block__header__text {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.block__header__text--1 {
+  font-family: "bebas-neue-by-fontfabric";
+  font-style: normal;
+  font-weight: 100;
+  font-size: 24px;
+  line-height: 28px;
+  color: #181818;
+}
+.block__header__text--2 {
+  font-family: "bebas-neue-by-fontfabric";
+  font-style: normal;
+  font-weight: 100;
+  font-size: 60px;
+  line-height: 60px;
+  color: #000000;
+  letter-spacing: 0.08em;
+  align-self: flex-end;
+}
+.block__header__text--3 {
+  font-family: "bebas-neue-by-fontfabric";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 16px;
+  color: #000000;
+  letter-spacing: 0.08em;
+  align-self: flex-end;
+}
+.block__header__text__bottom {
+  font-family: "bebas-neue-by-fontfabric";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+  letter-spacing: 0.04em;
+  display: flex;
+  justify-content: center;
+}
+.block__center {
+  background-image: url(/self-study1/assets/images/bg-image.png);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+.block__center__svg {
+  width: 30px;
+  height: 30px;
+}
+.block__center__text {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000;
+  letter-spacing: 0.04em;
+  padding-top: 40px;
+}
+.block__center__text p {
+  margin-bottom: 30px;
+}
+.block__bottom {
+  height: 57px;
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+.block__bottom p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 18px;
+  color: #A9A9A9;
+}
+.block__bottom button {
+  border: 0;
+  background-color: #6FCFFB;
+  border: 1px solid #6FCFFB;
+  border-radius: 30px;
+  font-family: "bebas-neue-by-fontfabric";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 18px;
+  color: #FFFFFF;
+  padding: 17px 50px;
+  position: absolute;
+}/*# sourceMappingURL=app.css.map */
