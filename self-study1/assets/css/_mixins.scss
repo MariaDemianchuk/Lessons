@@ -6,3 +6,9 @@ font-size: $size;
 line-height: $height;
 color: $color;
 }
+
+@mixin media ($width) {
+    @media screen and (max-width: $width){
+        @content;
+    }
+}

@@ -20,5 +20,10 @@ body {
     margin: 0 auto;
     padding-top: 120px;
     padding-bottom: 120px;
+
+    @include media ($width1) {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
     
 }

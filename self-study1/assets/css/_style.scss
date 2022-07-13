@@ -9,6 +9,30 @@
     -ms-flex-align: center;
     align-items: center;
     height: 673px;
+
+    @include media ($width1) {
+        height: 653px;
+    }
+
+    @include media ($width2) {
+        height: 603px;
+    }
+
+    @include media ($width3) {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        height: 673px;
+    }
+
+    @include media ($width4) {
+        height: 603px;
+    }
+
+    @include media ($width5) {
+        height: 550px;
+    }
 }
 
 .block {
@@ -16,12 +40,41 @@
     width: 370px;
     height: 93%;
 
+    @include media ($width1) {
+        width: 340px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+
+    @include media ($width3) {
+        width: 370px;
+        margin-bottom: 50px;
+    }
+
+    @include media ($width4) {
+        width: 340px;
+    }
+
+    @include media ($width5) {
+        width: 270px;
+    }
+
+    @include media ($width6) {
+        width: 250px;
+    }
 
     &:hover {
         -webkit-transform: scale(1.08);
         -ms-transform: scale(1.08);
         transform: scale(1.08);
         height: 100%;
+
+        @include media ($width5) {
+            -webkit-transform: scale(1.02);
+            -ms-transform: scale(1.02);
+            transform: scale(1.02);
+        }
     }
 
     &:hover .block__hover {
@@ -33,12 +86,21 @@
     &:hover .block__header {
         padding-top: 50px;
         padding-bottom: 40px;
+
+        @include media ($width5) {
+            padding-top: 30px;
+            padding-bottom: 20px;
+        }
     }
 
     &:hover .block__bottom {
         padding-top: 30px;
         padding-bottom: 60px;
         height: 92px;
+
+        @include media ($width1) {
+            padding-top: 20px;
+        }
     }
 
     &:hover .block__bottom p {
@@ -50,6 +112,24 @@
         bottom: 50px;
         background-color: $colred;
         border-color: $colred;
+
+        @include media ($width1) {
+            bottom: 30px;
+        }
+
+
+        @include media ($width3) {
+            bottom: 60px;
+        }
+
+        @include media ($width4) {
+            bottom: 40px;
+        }
+
+        @include media ($width5) {
+            bottom: 60px;
+        }
+        
     }
 
     &__hover {
@@ -118,12 +198,24 @@
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
+
+            @include media ($width4) {
+               display: none;
+            }
         }
     }
 
     &__header {
         padding-top: 40px;
         padding-bottom: 30px;
+
+        @include media ($width1) {
+            padding-bottom: 20px;
+        }
+
+        @include media ($width5) {
+            padding-bottom: 10px;
+        }
 
         &__text {
             display: -webkit-box;
@@ -136,6 +228,10 @@
             -ms-flex-pack: center;
             justify-content: center;
             margin-bottom: 20px;
+
+            @include media ($width5) {
+                margin-bottom: 10px;
+            }
 
 
             &--1 {
@@ -185,6 +281,13 @@
         padding-top: 40px;
         padding-bottom: 30px;
 
+
+        @include media ($width5) {
+            padding-top: 20px;
+            padding-bottom: 15px;
+        }
+        
+
         &__svg {
             width: 30px;
             height: 30px;
@@ -197,6 +300,10 @@
 
             & p {
                 margin-bottom: 30px;
+
+                @include media ($width2) {
+                    margin-bottom: 20px;
+                }
             }
         }
     }
@@ -223,6 +330,10 @@
             @include text ($font1, 400, 18px, 18px, $colwhite);
             padding: 17px 50px;
             position: absolute;
+
+            @include media ($width1) {
+                padding: 14px 45px;
+            }
         }
     }
 
