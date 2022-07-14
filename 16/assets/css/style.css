@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: all .2s ease-in;
+    transition: all .5s ease-in;
 }
 
 :root {
@@ -309,6 +309,7 @@
     letter-spacing: 0.1em;
     color: var(--main-col-white);
     cursor: pointer;
+    border: 0;
 }
 
 .sect__fourth {
