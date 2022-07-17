@@ -119,6 +119,11 @@
             box-shadow: 0px 0px 20px $col_purple-hov;
         }
 
+        &:active {
+            background: $col_purple-light;
+            box-shadow: 0px 0px 20px $col_purple-hov;
+        }
+
         &:hover .sidebar__text {
             color: $col_white;
         }

@@ -131,6 +131,10 @@ body {
   background: #9E8CFC;
   box-shadow: 0px 0px 20px rgba(158, 140, 252, 0.7);
 }
+.sidebar__nav:active {
+  background: #9E8CFC;
+  box-shadow: 0px 0px 20px rgba(158, 140, 252, 0.7);
+}
 .sidebar__nav:hover .sidebar__text {
   color: #FFFFFF;
 }
