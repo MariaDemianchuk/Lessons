@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Створити HTML-сторінку зі світлофором і кнопкою, яка перемикає світлофор на наступний колір.
+        document.title = 'traffic lights'
+
+        const wrapper = document.createElement('div')
+        wrapper.setAttribute('class', 'traffic')
+
+        const topLight = document.createElement('p')
+        topLight.setAttribute('class', 'traffic_light')
+        topLight.setAttribute('id', 'topLight')
+
+        const centerLight = document.createElement('p')
+        centerLight.setAttribute('class', 'traffic_light')
+        centerLight.setAttribute('id', 'centerLight')
+
+        const bottomLight = document.createElement('p')
+        bottomLight.setAttribute('class', 'traffic_light')
+        bottomLight.setAttribute('id', 'bottomLight')
+
+        wrapper.appendChild(topLight)
+        wrapper.appendChild(centerLight)
+        wrapper.appendChild(bottomLight)
+        document.body.appendChild(wrapper)
+
+        const btn = document.createElement('button')
+        btn.setAttribute('type', 'button')
+        btn.setAttribute('class', 'btn')
+        btn.innerText = 'switch'
+        document.body.appendChild(btn)
+
+        let countClick = 0
+
+        btn.onclick = () => {
+            countClick++
+            console.log(countClick)
+            if (countClick === 1) {
+                document.getElementById('topLight').setAttribute('id', 'red')
+            }
+            if (countClick === 2) {
+                document.getElementById('red').setAttribute('id', 'topLight')
+                document.getElementById('centerLight').setAttribute('id', 'orange')
+            }
+            if (countClick === 3) {
+                document.getElementById('orange').setAttribute('id', 'centerLight')
+                document.getElementById('bottomLight').setAttribute('id', 'green')
+            }
+            if (countClick>3) {
+                countClick = 0
+                document.getElementById('green').setAttribute('id', 'bottomLight')
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

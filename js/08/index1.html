@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1ca859b5b6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Створити HTML-сторінку з кнопкою "Відкрити" і модальним вікном. 
+        // На модальном вікні повинен бути текст і кнопка "Закрити". Спочатку модальне вікно не відображається. 
+        // При кліку на кнопку "Відкрити" з'являється модальне вікно, на кнопку "Закрити" — зникає.
+        document.title = 'Modal'
+
+        const openBTN = document.createElement('button')
+        openBTN.setAttribute('type', 'button')
+        openBTN.innerText = 'OPEN'
+        openBTN.setAttribute('class', 'modal_open')
+
+        const modalOverlay = document.createElement('div')
+        modalOverlay.style.backgroundColor = 'rgb(120, 120, 120)'
+        modalOverlay.style.position = 'fixed'
+        modalOverlay.style.zIndex = '1'
+        modalOverlay.style.width = '100%'
+        modalOverlay.style.height = '100%'
+        modalOverlay.style.display = 'none'
+        modalOverlay.style.alignItems = 'center'
+        modalOverlay.style.justifyContent = 'center'
+        modalOverlay.setAttribute('id', 'modal')
+
+        const modal = document.createElement('div')
+        modal.setAttribute('class', 'modal')
+
+
+        const modalHeader = document.createElement('div')
+        modalHeader.setAttribute('class', 'modal_header')
+        const modalHeaderText = document.createElement('h3')
+        modalHeaderText.innerText = 'Header of modal window'
+        const closeBtn = document.createElement('i')
+        closeBtn.setAttribute('class', 'fa-solid fa-circle-xmark')
+        modalHeader.appendChild(modalHeaderText)
+        modalHeader.appendChild(closeBtn)
+
+        const modalContent = document.createElement('div')
+        modalContent.setAttribute('class', 'modal_content')
+        const modalContentText = document.createElement('p')
+        modalContentText.innerText = 'Congratulation! You are open this perfect modal window:)'
+        modalContent.appendChild(modalContentText)
+
+        const modalButton = document.createElement('button')
+        modalButton.setAttribute('type', 'button')
+        modalButton.innerText = 'CLOSE'
+        modalButton.setAttribute('class', 'modal_button')
+
+
+        modal.appendChild(modalHeader)
+        modal.appendChild(modalContent)
+        modal.appendChild(modalButton)
+
+        modalOverlay.appendChild(modal)
+
+        document.body.appendChild(openBTN)
+        document.body.appendChild(modalOverlay)
+
+        openBTN.onclick = () => {
+            let modalOverlay = document.getElementById('modal')
+            if (modalOverlay.style.display === 'none') {
+                modalOverlay.style.display = 'flex'
+                openBTN.style.display = 'none'
+            }
+
+            modalButton.onclick = () => {
+                modalOverlay.style.display = 'none'
+                openBTN.style.display = 'flex'
+            }
+
+            closeBtn.onclick = () => {
+                modalOverlay.style.display = 'none'
+                openBTN.style.display = 'flex' 
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.traffic {
+    border: 1px solid black;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 20px;
+
+
+    &_light {
+        border: 1px solid black;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin: 10px;
+       
+    }
+}
+
+#red {
+    background-color: red;
+    border-color: red;
+}
+
+#orange {
+    background-color: orange;
+    border-color: orange;
+}
+
+#green {
+    background-color: green;
+    border-color: green;
+}
+
+.btn {
+    margin: 0 auto;
+    width: 200px;
+    font-size: 30px;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}

@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+}
+
+i {
+
+    cursor: pointer;
+}
+
+.modal {
+    background-color: lightgray;
+    border-radius: 5px;
+    display: block;
+
+
+    &_header {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+    }
+
+    &_content {
+        background-color: aliceblue;
+        height: 100px;
+        overflow: hidden;
+        padding: 5px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    &_button {
+        display: flex;
+        margin: 10px 10px 10px 80%;
+        cursor: pointer;
+    }
+
+    &_open {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 0;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+        border-radius: 3px;
+        margin: 20px;
+        width: 100px;
+        height: 50px;
+
+        &:hover {
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+        }
+    }
+}
