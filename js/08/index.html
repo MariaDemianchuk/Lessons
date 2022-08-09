@@ -9,95 +9,97 @@
 </head>
 
 <body>
-    <script>
-        //Створити сторінку, що показує нумерований список пісень:
-        var playList = [
-            {
-                author: "LED ZEPPELIN",
-                song: "STAIRWAY TO HEAVEN"
-            },
-            {
-                author: "QUEEN",
-                song: "BOHEMIAN RHAPSODY"
-            },
-            {
-                author: "LYNYRD SKYNYRD",
-                song: "FREE BIRD"
-            },
-            {
-                author: "DEEP PURPLE",
-                song: "SMOKE ON THE WATER"
-            },
-            {
-                author: "JIMI HENDRIX",
-                song: "ALL ALONG THE WATCHTOWER"
-            },
-            {
-                author: "AC/DC",
-                song: "BACK IN BLACK"
-            },
-            {
-                author: "QUEEN",
-                song: "WE WILL ROCK YOU"
-            },
-            {
-                author: "METALLICA",
-                song: "ENTER SANDMAN"
-            }
-        ];
-
-        document.title = 'List of songs'
-        let link = document.createElement('link')
-        link.setAttribute('rel', 'preconnect')
-        link.setAttribute('href', 'https://fonts.googleapis.com')
-        let link2 = document.createElement('link')
-        link2.setAttribute('rel', 'preconnect')
-        link2.setAttribute('href', 'https://fonts.gstatic.com')
-        let link3 = document.createElement('link')
-        link3.setAttribute('rel', 'stylesheet')
-        link3.setAttribute('href', 'https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap')
-        document.head.append(link)
-        document.head.append(link2)
-        document.head.append(link3)
-
-        let listHead = document.createElement('h1')
-        console.log(listHead)
-        listHead.innerText = 'List of songs'
-        listHead.style.fontFamily = 'Mouse Memoirs'
-        listHead.style.letterSpacing = '3px'
-        listHead.style.textAlign = 'center'
-        document.body.appendChild(listHead)
-
-        let list = document.createElement('ol')
-       
-        playList.forEach(element => {
-            let item = document.createElement('li')
-            item.style.margin = '20px'
-
-            let song = document.createElement('span')
-            song.innerText = `${element.song}`
-            song.style.fontWeight = '600'
-            song.style.marginRight = '10px'
-
-            let author = document.createElement('span')
-            author.innerText = `(${element.author})`
-            author.style.fontStyle = 'italic'
-
-            item.appendChild(song)
-            item.appendChild(author)
-            list.appendChild(item)
-        })
-
-        document.body.appendChild(list)
-    </script>
-
 <div style="border: 1px solid black; margin:50px; width:200px; background-color:aliceblue; padding: 10px;">
     <p>Посилання на завдання</p>
+    <a href="index.html" target="_blank">завдання 1</a>
+    <br>
+    <br>
     <a href="index1.html" target="_blank">завдання 2</a>
     <br>
     <br>
     <a href="index2.html" target="_blank">завдання 3</a>
 </div>
+<script>
+    //Створити сторінку, що показує нумерований список пісень:
+    var playList = [
+        {
+            author: "LED ZEPPELIN",
+            song: "STAIRWAY TO HEAVEN"
+        },
+        {
+            author: "QUEEN",
+            song: "BOHEMIAN RHAPSODY"
+        },
+        {
+            author: "LYNYRD SKYNYRD",
+            song: "FREE BIRD"
+        },
+        {
+            author: "DEEP PURPLE",
+            song: "SMOKE ON THE WATER"
+        },
+        {
+            author: "JIMI HENDRIX",
+            song: "ALL ALONG THE WATCHTOWER"
+        },
+        {
+            author: "AC/DC",
+            song: "BACK IN BLACK"
+        },
+        {
+            author: "QUEEN",
+            song: "WE WILL ROCK YOU"
+        },
+        {
+            author: "METALLICA",
+            song: "ENTER SANDMAN"
+        }
+    ];
+
+    document.title = 'List of songs'
+    let link = document.createElement('link')
+    link.setAttribute('rel', 'preconnect')
+    link.setAttribute('href', 'https://fonts.googleapis.com')
+    let link2 = document.createElement('link')
+    link2.setAttribute('rel', 'preconnect')
+    link2.setAttribute('href', 'https://fonts.gstatic.com')
+    let link3 = document.createElement('link')
+    link3.setAttribute('rel', 'stylesheet')
+    link3.setAttribute('href', 'https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap')
+    document.head.append(link)
+    document.head.append(link2)
+    document.head.append(link3)
+
+    let listHead = document.createElement('h1')
+    console.log(listHead)
+    listHead.innerText = 'List of songs'
+    listHead.style.fontFamily = 'Mouse Memoirs'
+    listHead.style.letterSpacing = '3px'
+    listHead.style.textAlign = 'center'
+    document.body.appendChild(listHead)
+
+    let list = document.createElement('ol')
+   
+    playList.forEach(element => {
+        let item = document.createElement('li')
+        item.style.margin = '20px'
+
+        let song = document.createElement('span')
+        song.innerText = `${element.song}`
+        song.style.fontWeight = '600'
+        song.style.marginRight = '10px'
+
+        let author = document.createElement('span')
+        author.innerText = `(${element.author})`
+        author.style.fontStyle = 'italic'
+
+        item.appendChild(song)
+        item.appendChild(author)
+        list.appendChild(item)
+    })
+
+    document.body.appendChild(list)
+</script>
 
 </body>
 
