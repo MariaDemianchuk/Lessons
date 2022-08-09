@@ -57,8 +57,9 @@
                 document.getElementById('bottomLight').setAttribute('id', 'green')
             }
             if (countClick>3) {
-                countClick = 0
+                countClick = 1
                 document.getElementById('green').setAttribute('id', 'bottomLight')
+                document.getElementById('topLight').setAttribute('id', 'red')
             }
         }
     </script>
