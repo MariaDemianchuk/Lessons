@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Створити HTML-сторінку з блоком тексту в рамці. Реалізувати можливість змінювати розмір блоку, 
+    якщо затиснути мишку в правому нижньому кутку і тягнути її далі. -->
+    <script>
+        document.body.style.backgroundColor = 'green'
+        let block = document.createElement('div')
+        block.innerHTML = 'Please click on bottom right corner and make needed box size'
+        block.style.border = '1px solid green'
+        block.style.width = '200px'
+        block.style.height = '200px'
+        block.style.minWidth = '100px'
+        block.style.minHeight = '100px'
+        block.style.margin = '20px'
+        block.style.padding = '5px'
+        block.style.position = 'relative'
+        block.style.backgroundColor = 'white'
+        block.setAttribute('class', 'resizable')
+
+        let corner = document.createElement('div')
+        corner.style.position = 'absolute'
+        corner.style.bottom = '0'
+        corner.style.right = '0'
+        corner.style.cursor = 'nwse-resize'
+        corner.style.width = '10px'
+        corner.style.height = '10px'
+        corner.setAttribute('class', 'resizer')
+
+        block.appendChild(corner)
+
+        document.body.appendChild(block)
+
+        function resizeDiv(div) {
+            const element = document.querySelector('div');
+            const resizer = document.querySelector('div' + ".resizer")
+            console.log(resizer)
+            console.log(element)
+
+            resizer.addEventListener("mousedown", function (e) {
+                e.preventDefault()
+                window.addEventListener('mousemove', resize)
+                window.addEventListener('mouseup', stopResize)
+            })
+
+            function resize(e) {
+                element.style.width = e.pageX - element.getBoundingClientRect().left + 'px';
+                element.style.height = e.pageY - element.getBoundingClientRect().top + 'px';
+                console.log(element.style.width)
+            }
+
+            function stopResize() {
+                window.removeEventListener('mousemove', resize)
+            }
+        }
+        resizeDiv('.resizable')
+    </script>
+</body>
+
+</html>

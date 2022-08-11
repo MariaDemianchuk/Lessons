@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 2px 5px;
+}
+
+td {
+  text-align: center;
+}
+
+th {
+  cursor: pointer;
+}
+
+table {
+  margin: 50px;
+}/*# sourceMappingURL=style.css.map */

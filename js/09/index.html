@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textarea</title>
+</head>
+
+<body>
+    <div style="border: 1px solid black; margin:50px; width:200px; background-color:aliceblue; padding: 10px;">
+        <p>Посилання на завдання</p>
+        <a href="index.html" target="_blank">завдання 1</a>
+        <br>
+        <br>
+        <a href="index1.html" target="_blank">завдання 2</a>
+        <br>
+        <br>
+        <a href="index2.html" target="_blank">завдання 3</a>
+    </div>
+    <!-- Створити HTML-сторінку для відображення/редагування тексту.
+    При відкритті сторінки текст відображається за допомогою тега div. 
+    При натисканні Ctrl + E, замість div з'являється textarea з тим же текстом, який тепер можна редагувати. 
+    При натисканні Ctrl + S, замість textarea з'являється div з уже зміненим текстом. 
+    Не забудь вимкнути поведінку за замовчуванням для цих поєднань клавіш. -->
+    <textarea id="area"></textarea>
+    <div id="view">Enter your text (Ctrl+E)</div>
+    <script>
+
+        area.hidden = true;
+
+        document.addEventListener('keydown', function (e) {
+            if (e.ctrlKey && e.code == 'KeyE') {
+                e.preventDefault()
+                view.hidden = true;
+                area.hidden = false;
+                area.focus()
+                area.innerHTML = view.innerHTML;
+                return false;
+            }
+
+            if (e.ctrlKey && e.code == 'KeyS') {
+                e.preventDefault()
+                view.hidden = false;
+                area.hidden = true;
+                view.innerHTML = area.value;
+                return false;
+            } else if (e.code == 'Escape') {
+                view.hidden = false;
+                area.hidden = true;
+            }
+        })
+
+    </script>
+</body>
+
+</html>

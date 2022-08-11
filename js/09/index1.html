@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Створити HTML-сторінку з великою таблицею. При кліку на заголовок стовпця, необхідно відсортувати дані цього стовпця. 
+    Врахуй, що числові значення повинні сортуватися як числа, а не як рядки. -->
+    <script>
+        var playList = [
+            {
+                author: "LED ZEPPELIN",
+                song: "STAIRWAY TO HEAVEN",
+                duration: 2.29
+            },
+            {
+                author: "QUEEN",
+                song: "BOHEMIAN RHAPSODY",
+                duration: 3.55
+            },
+            {
+                author: "LYNYRD SKYNYRD",
+                song: "FREE BIRD",
+                duration: 4.05
+            },
+            {
+                author: "DEEP PURPLE",
+                song: "SMOKE ON THE WATER",
+                duration: 2.29
+            },
+            {
+                author: "JIMI HENDRIX",
+                song: "ALL ALONG THE WATCHTOWER",
+                duration: 2.25
+            },
+            {
+                author: "AC/DC",
+                song: "BACK IN BLACK",
+                duration: 3.25
+            },
+            {
+                author: "Maneskin",
+                song: "Coraline",
+                duration: 3.38
+            },
+            {
+                author: "METALLICA",
+                song: "ENTER SANDMAN",
+                duration: 3.48
+            }
+        ]
+
+        let table = document.createElement('table')
+        table.setAttribute('id', 'table')
+        let headerRow = document.createElement('tr')
+        let headers = ['author', 'song', 'duration']
+
+        headers.forEach(headerText => {
+            let header = document.createElement('th')
+            let textNode = document.createTextNode(headerText)
+            header.appendChild(textNode)
+            if (headerText === 'author') {
+                header.setAttribute('onclick', 'sorting(0)')
+            }
+            if (headerText === 'song') {
+                header.setAttribute('onclick', 'sorting(1)')
+            }
+            if (headerText === 'duration') {
+                header.setAttribute('onclick', 'sorting(2)')
+            }
+
+            headerRow.appendChild(header)
+        })
+
+        table.appendChild(headerRow)
+
+        playList.forEach(el => {
+            let row = document.createElement('tr')
+
+            Object.values(el).forEach(text => {
+                let col = document.createElement('td')
+                let textNode = document.createTextNode(text)
+                col.appendChild(textNode)
+                row.appendChild(col)
+            })
+            table.appendChild(row)
+        })
+        document.body.appendChild(table);
+
+        function sorting(n) {
+            let sortTable = document.getElementById('table')
+            console.log(n)
+            let clickCount = 0
+            let dir = 'asc'
+            let click = true
+
+            while (click) {
+                click = false
+                let rows = sortTable.rows
+                console.log(rows)
+                let switching = false
+
+                if (n < 2) {
+                    for (let i = 1; i < (rows.length - 1); i++) {
+                        let a = rows[i].getElementsByTagName("td")[n];
+                        let b = rows[i + 1].getElementsByTagName("td")[n];
+                        console.log(typeof a)
+
+                        if (dir == "asc") {
+                            if (a.innerHTML.toLowerCase() > b.innerHTML.toLowerCase()) {
+                                switching = true
+                            }
+                        } else if (dir == "desc") {
+                            if (a.innerHTML.toLowerCase() < b.innerHTML.toLowerCase()) {
+                                switching = true
+                            }
+                        }
+
+                        if (switching) {
+                            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                            click = true
+                            clickCount++
+
+                        } else {
+                            if (clickCount == 0 && dir == "asc") {
+                                dir = "desc"
+                                click = true
+                            }
+                        }
+                    }
+                }
+
+                if (n > 1) {
+                    for (let i = 1; i < (rows.length - 1); i++) {
+                        let a = rows[i].getElementsByTagName("td")[n];
+                        let b = rows[i + 1].getElementsByTagName("td")[n];
+                        console.log(typeof a)
+                        console.log(a)
+
+                        if (dir == "asc") {
+                            if (a.innerHTML < b.innerHTML) {
+                                switching = true
+                            }
+                        } else if (dir == "desc") {
+                            if (a.innerHTML > b.innerHTML) {
+                                switching = true
+                            }
+                        }
+
+                        if (switching) {
+                            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                            click = true
+                            clickCount++
+
+                        } else {
+                            if (clickCount == 0 && dir == "asc") {
+                                dir = "desc"
+                                click = true
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    </script>
+</body>
+
+</html>
