@@ -1,0 +1,172 @@
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: #2B3040;
+}
+
+.block {
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 82px;
+    margin-bottom: 82px;
+    position: relative;
+}
+
+.block1 {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 154px;
+    left: 200px;
+    width: 600px;
+    z-index: 3;
+
+    &__head {
+        background: #2B3040;
+        display: flex;
+        justify-content: space-between;
+        padding: 28px 50px;
+        height: 120px;
+
+        &__text {
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 28px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            margin-top: 15px;
+        }
+
+        &__item {
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+
+    &__body {
+        background-color: #212534;
+        padding: 60px 40px;
+        display: flex;
+        justify-content: space-between;
+
+        &__left {
+            width: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            &__stars {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 25px;
+                cursor: pointer;
+            }
+        }
+
+        &__right {
+            &__first {
+                display: flex;
+                justify-content: space-between;
+
+                &__text {
+                    font-family: 'Lato';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: #FFFFFF;
+
+                    &__header {
+                        font-family: 'Lato';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 32px;
+                        line-height: 32px;
+                        color: #FFFFFF;
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+
+            &__second {
+                width: 277px;
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 22px;
+                color: #B7BACD;
+                margin-top: 40px;
+                margin-bottom: 50px;
+            }
+
+            &__third {
+                display: flex;
+                justify-content: space-between;
+
+                &__price {
+                    font-family: 'Lato';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 32px;
+                    line-height: 32px;
+                    color: #FFFFFF;
+                }
+
+                &__disc {
+                    font-family: 'Lato';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 20px;
+                    color: #FFDD3F;
+                    margin-bottom: 4px;
+                }
+
+                &__btn {
+                    border: 0;
+                    padding: 20px 30px;
+                    font-family: 'Lato';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 20px;
+                    text-transform: uppercase;
+                    color: #FFFFFF;
+                    background: #13E28D;
+                    border-radius: 2px;
+                    cursor: pointer;
+                    margin-left: 50px;
+                    
+                    &:hover{
+                        background: #0da566;
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+#circle {
+    width: 75px;
+    height: 75px;
+    margin-left: 70px;
+}
