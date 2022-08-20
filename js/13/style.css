@@ -1,0 +1,10 @@
+.items {
+  margin: 10px 10px 20px 10px;
+  cursor: pointer;
+}
+.items:hover {
+  color: green;
+}
+.items:active {
+  color: red;
+}/*# sourceMappingURL=style.css.map */
