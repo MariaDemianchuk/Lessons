@@ -1,5 +1,5 @@
 
-const API = 'http://www.omdbapi.com/?apikey=98b548a&s'
+const API = 'https://www.omdbapi.com/?apikey=98b548a&s'
 let btn = document.querySelector('.btn')
 $('.btn').click(function () {
     console.log('clicked')
@@ -11,7 +11,7 @@ $('.btn').click(function () {
     let page = 1
 
     async function search() {
-        const responce = await fetch(`${API}&s=${searchName}${searchType}&page=${page}`, { mode: 'cors' })
+        const responce = await fetch(`${API}&s=${searchName}${searchType}&page=${page}`)
         const data = await responce.json()
         console.log(data)
 
@@ -26,7 +26,7 @@ $('.btn').click(function () {
                 let more = `<span><a href="#" class = "more" id="${i}">Details</a></span>`
                 $(item).append(more)
                 $(name).append(item)
-                
+
                 let id = data.Search[i].imdbID
                 let newAPI = API + `&i=${id}`
                 const r = await fetch(newAPI)
