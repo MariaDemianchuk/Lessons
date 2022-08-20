@@ -1,12 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1ca859b5b6.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <title>Film Search</title>
 </head>
+
 <body>
+    <main class="container">
+        <div class="wrapper">
+            <p class="search">
+                <span>
+                    <label class = "search__name" for="findByName"> Find a film
+                        <i class="fa-solid fa-magnifying-glass icon"></i>
+                    </label>
+                    <input class="search__input" id="findByName" type="text" placeholder="Enter film title" />
+                </span>
+            </p>
+            <p class="select">
+                <select class="select__items">
+                    <!-- <option class="select__item" value="select">select type</option> -->
+                    <option class="select__item" value="movie">movie</option>
+                    <option class="select__item" value="series">series</option>
+                    <option class="select__item" value="episode">episode</option>
+                </select>
+            </p>
+            <button class="btn" type="submit">
+                search
+            </button>
+        </div>
+        <div>
+            <ul class="pages">
+
+
+            </ul>
+
+        </div>
+        <div class="list__wrap">
+            <ul class="list">
+
+            </ul>
+
+        </div>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="index.js"></script>
 </body>
+
 </html>

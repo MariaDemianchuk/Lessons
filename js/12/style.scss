@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: white;
+
+    &:hover{
+        color: #c0fd92;
+    }
+}
+
+span {
+    position: relative;
+    display: inline-block;
+    margin: 30px 10px;
+}
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid #c0fd92;
+    background-color: #c0fd92;
+    height: 100px;
+    margin-top: 20px;
+}
+
+.icon {
+    margin-left: 5px;
+}
+
+
+
+.search {
+    &__name {
+        font-family: 'DynaPuff', cursive;
+        font-size: 24px;
+        margin-right: 35px;
+        margin-left: 30px;
+    }
+
+    &__input {
+        height: 35px;
+        width: 300px;
+        border: 0;
+        border-radius: 3px;
+        font-family: 'DynaPuff', cursive;
+        font-size: 16px;
+        padding: 3px;
+    }
+}
+
+.select {
+    &__items {
+        border: 0;
+        border-radius: 3px;
+        width: 215px;
+        height: 35px;
+        font-family: 'DynaPuff', cursive;
+        font-size: 16px;
+        cursor: pointer;
+
+        &:focus {
+            background-color: #c0fd92;
+        }
+
+        &:focus-visible {
+            outline: none;
+        }
+    }
+
+    &__item {
+        background-color: #c0fd92;
+        border: 0;
+
+
+        &:focus-visible {
+            outline: none;
+            cursor: pointer;
+        }
+    }
+}
+
+.btn {
+    padding: 5px 15px;
+    font-family: 'DynaPuff', cursive;
+    font-size: 20px;
+    border: 0;
+    border-radius: 3px;
+
+    &:hover {
+        background-color: rgba(3, 70, 13);
+        color: white;
+        cursor: pointer;
+    }
+
+}
+
+.list {
+    background-color: rgba(3, 70, 13);
+    color: white;
+    font-family: 'DynaPuff', cursive;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page {
+    border: 1px solid #c0fd92;
+    padding: 5px 10px;
+    margin-right: 5px;
+
+    &:hover {
+        background-color: rgba(3, 70, 13);
+        color: white;
+    }
+}
+
+.details {
+    font-family: 'DynaPuff', cursive;
+    font-size: 15px;
+}
