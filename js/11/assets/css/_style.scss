@@ -248,6 +248,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     @include media (320px) {
         & .slick-dots li button:before {
             font-size: 12px;
@@ -255,18 +256,18 @@ header {
             color: #CAC2BA;
             margin-right: 12px;
         }
-    
+
         & .slick-dots li.slick-active button:before {
             color: #F16A50;
         }
-    
+
         & .slick-dots li {
             margin: 0 6px;
         }
-    
+
         & .slick-dots {
             bottom: -40px;
-    
+
         }
     }
 
@@ -470,18 +471,18 @@ header {
                 color: #CAC2BA;
                 margin-right: 12px;
             }
-        
+
             .slick-dots li.slick-active button:before {
                 color: #F16A50;
             }
-        
+
             .slick-dots li {
                 margin: 0 6px;
             }
-        
+
             .slick-dots {
                 bottom: -40px;
-        
+
             }
         }
     }

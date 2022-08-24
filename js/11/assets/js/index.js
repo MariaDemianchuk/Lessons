@@ -82,28 +82,28 @@ jQuery.each(socClass, function (e) {
 
 })
 
-    $(window).resize(function () {
-        let width = $(window).width();
-        console.log(width)
-        let logo1 = $('.footer__logo>img')
-        let logo2 = $('.footer__mid>img')
-        let logo3 = $('.footer>img')
-        let olddiv = $('.footer__logo')
-        let newdiv = $('.footer__mid')
-        let newdiv2 = $('.footer')
-        if (width <= 753) {
-            $(newdiv).prepend(logo1);
-        } else if (width > 753){
-            $(olddiv).prepend(logo2);
-        }
-        if (width <= 305) {
-            $(logo2).css(({
-                "margin-left": "20%",
-                "margin-bottom": "40px"
-              }))
-            $(newdiv2).prepend(logo2);
-        } else if (width > 305){
-            $(newdiv).prepend(logo3);
-        }
+$(window).resize(function () {
+    let width = $(window).width();
+    console.log(width)
+    let logo1 = $('.footer__logo>img')
+    let logo2 = $('.footer__mid>img')
+    let logo3 = $('.footer>img')
+    let olddiv = $('.footer__logo')
+    let newdiv = $('.footer__mid')
+    let newdiv2 = $('.footer')
+    if (width <= 753) {
+        $(newdiv).prepend(logo1);
+    } else if (width > 753) {
+        $(olddiv).prepend(logo2);
+    }
+    if (width <= 305) {
+        $(logo2).css(({
+            "margin-left": "20%",
+            "margin-bottom": "40px"
+        }))
+        $(newdiv2).prepend(logo2);
+    } else if (width > 305) {
+        $(newdiv).prepend(logo3);
+    }
 
-    });
+});
