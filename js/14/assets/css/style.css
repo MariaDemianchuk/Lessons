@@ -1,0 +1,42 @@
+#map a[href^="http://maps.google.com/maps"] {
+  display: none !important;
+}
+#map a[href^="https://maps.google.com/maps"] {
+  display: none !important;
+}
+#map .gmnoprint a,
+#map .gmnoprint span,
+#map .gm-style-cc {
+  display: none;
+}
+#map .gmnoprint div {
+  background: none !important;
+}
+
+.search {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
+  background-color: aliceblue;
+  width: 300px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.block {
+  background-color: rgba(240, 248, 255, 0.8);
+  position: absolute;
+  z-index: 1;
+  right: 20px;
+  top: 20px;
+  padding: 10px;
+}
+
+input {
+  width: 250px;
+  margin-top: 10px;
+}/*# sourceMappingURL=style.css.map */
