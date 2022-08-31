@@ -1,20 +1,10 @@
 const gulp = require('gulp');
-const sass = require('gulp-sass')(require('sass'));
+const imagemin = require('gulp-imagemin');
 
-function scss() {
-console.log('scss')
-return gulp.src('./*.scss')
-.pipe(sass().on('error', sass.logError))
-.pipe(gulp.dest('./'));
-};
+function imgMin(){
+    return gulp.src('./assets/images/*')
+    .pipe(imagemin())
+    .pipe(gulp.dest('./assets/images_gulp'))
+  };
 
-function copyFile() {
-return gulp.src('txt.txt').pipe(gulp.dest('new.txt'))
-}
-
-function watching() {
-    return gulp.watch('./*scss', scss)
-}
-
-exports.scss = scss;
-exports.watch = watching; 
+exports.imgMin = imgMin
