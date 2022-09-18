@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import HeaderStart from "./HeaderStart.vue";
-import BodyStart from "./BodyStart.vue";
+import HeaderStart from "../../components/start_page/HeaderStart.vue";
+import BodyStart from "../../components/start_page/BodyStart.vue";
 
 export default {
   name: "StartPage",

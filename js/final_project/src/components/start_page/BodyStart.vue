@@ -135,23 +135,21 @@
         </div>
       </div>
     </div>
-    <div>
-      <NewsBlock />
-    </div>
+    <NewsSlider />
   </div>
 </template>
 
 <script>
-import NewsBlock from "./NewsBlock.vue";
+import NewsSlider from "./NewsSlider.vue";
 export default {
   name: "BodyStart",
   components: {
-    NewsBlock,
+    NewsSlider,
   },
 };
 </script>
 
-<style>
+<style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
 .carousel {
   margin-top: 20px;
@@ -164,7 +162,7 @@ p {
 }
 .icons {
   width: 90px;
-  margin-right: 50px;
+  margin-right: 20px;
 }
 .block {
   display: flex;

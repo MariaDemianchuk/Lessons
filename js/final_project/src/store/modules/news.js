@@ -17,6 +17,7 @@ const actions = {
     api.getNews().then((resp) => {
       console.log(resp);
       commit("SET_NEWS", resp.data.articles);
+      console.log(resp.data.articles[0].imageUrl);
     });
   },
 };
