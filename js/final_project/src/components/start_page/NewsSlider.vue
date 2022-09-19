@@ -1,36 +1,45 @@
 <template>
   <swiper
     :slides-per-view="3"
-    :space-between="30"
+    :space-between="50"
     :loop="false"
     :pagination="{ clickable: true }"
     :navigation="{ clickable: true }"
     @swiper="onSwiper"
     @slideChange="onSlideChange"
   >
-    <swiper-slide v-for="new1 in news" :key="new1.articleId">
-      <b-card style="max-width: 20rem" class="mb-2">
-        <b-card-img :src="new1.imageUrl"></b-card-img>
-        <b-card-text>{{ new1.content.substring(0, 300) + "..." }}</b-card-text>
-        <b-button :href="new1.url" variant="primary">Читати</b-button>
+    <swiper-slide
+      v-for="art in news"
+      :key="art.articleId"
+      :art="art"
+      style="max-width: 30rem"
+      class="mb-2"
+      v-show="art.imageUrl"
+    >
+      <b-card>
+        <b-card-img :src="art.imageUrl"></b-card-img>
+        <b-card-text>{{ art.title.substring(0, 300) + "..." }}</b-card-text>
+        <b-button :href="art.url" variant="primary">Читати</b-button>
       </b-card>
+      <!-- <news-slide></news-slide> -->
     </swiper-slide>
   </swiper>
 </template>
 
 <script>
-// import NewsBlock from "./NewsBlock.vue";
+// import NewsSlide from "./NewsSlide.vue";
 import { Navigation, Pagination } from "swiper";
 import { SwiperCore, Swiper, SwiperSlide } from "swiper-vue2";
-SwiperCore.use([Navigation, Pagination]);
 import "swiper/swiper-bundle.css";
+SwiperCore.use([Navigation, Pagination]);
+
 export default {
+  name: "NewsSlider",
   components: {
-    // NewsBlock,
+    // NewsSlide,
     Swiper,
     SwiperSlide,
   },
-  name: "NewsSlider",
   computed: {
     news() {
       return this.$store.getters.getNews;

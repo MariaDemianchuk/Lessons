@@ -165,7 +165,7 @@ p {
   margin-right: 20px;
 }
 .block {
-  display: flex;
+  display: inline-block;
   justify-content: space-between;
   width: 40%;
 }
