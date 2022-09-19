@@ -5,8 +5,12 @@
         <img src="../../assets/logo.png" alt="logo" />
       </div>
       <div class="buttons">
-        <button>Вхід</button>
-        <button>Реєстрація</button>
+        <router-link to="/login">
+          <button class="button">Вхід</button>
+        </router-link>
+        <router-link to="/registration">
+          <button class="button">Реєстрація</button>
+        </router-link>
       </div>
     </div>
     <div class="bottom-shadow"></div>
@@ -41,16 +45,17 @@ export default {
     width: 250px;
     padding-top: 10px;
 
-    button {
+    .button {
       width: 110px;
       color: white;
       background-color: black;
       font-family: "Montserrat", sans-serif;
       border: none;
       border-radius: 10px;
+      height: 100%;
     }
 
-    button:hover {
+    .button:hover {
       color: black;
       background-color: white;
       border: 1px solid black;
