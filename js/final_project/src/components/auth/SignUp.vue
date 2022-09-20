@@ -1,11 +1,229 @@
 <template>
   <div>
-    <div>Register page</div>
+    <div class="modal">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <b-form
+            class="modal_form position-absolute p-3"
+            @submit.prevent="onSubmit"
+          >
+            <div class="btn_close">
+              <button
+                @click="close"
+                type="button"
+                class="btn-close btn-close-white"
+                aria-label="Close"
+              ></button>
+            </div>
+            <b-form-group
+              class="label_name"
+              label="Name"
+              label-for="form-name"
+              label-cols-lg="2"
+            >
+              <b-input-group>
+                <b-input-group-prepend is-text>
+                  <b-icon icon="person-fill"></b-icon>
+                </b-input-group-prepend>
+                <b-form-input
+                  id="form-name"
+                  :disabled="busy"
+                  v-model="password"
+                  @input="OnValid"
+                ></b-form-input>
+              </b-input-group>
+              <div v-if="errors.password">{{ errors.password }}</div>
+            </b-form-group>
+
+            <b-form-group
+              class="label_name"
+              label="Електронна адреса"
+              label-for="form-mail"
+            >
+              <b-input-group>
+                <b-input-group-prepend is-text>
+                  <b-icon icon="envelope-fill"></b-icon>
+                </b-input-group-prepend>
+                <b-form-input
+                  id="form-email"
+                  type="email"
+                  :disabled="busy"
+                  v-model="email"
+                  @input="OnValid"
+                ></b-form-input>
+              </b-input-group>
+              <div v-if="errors.email">{{ errors.email }}</div>
+            </b-form-group>
+
+            <b-form-checkbox
+              id="checkbox-1"
+              name="checkbox-1"
+              value="accepted"
+              unchecked-value="not_accepted"
+            >
+              I accept the terms and use
+            </b-form-checkbox>
+
+            <div class="d-flex justify-content-center">
+              <b-button ref="submit" type="submit" :disabled="busy"
+                >Submit</b-button
+              >
+            </div>
+
+            <b-overlay :show="busy" no-wrap @shown="onShown" @hidden="onHidden">
+              <template #overlay>
+                <div
+                  v-if="processing"
+                  class="text-center p-4 bg-primary text-light rounded"
+                >
+                  <b-icon icon="cloud-upload" font-scale="4"></b-icon>
+                  <div class="mb-3">Processing...</div>
+                  <b-progress
+                    min="1"
+                    max="20"
+                    :value="counter"
+                    variant="success"
+                    height="3px"
+                    class="mx-n4 rounded-0"
+                  ></b-progress>
+                </div>
+                <div
+                  v-else
+                  ref="dialog"
+                  tabindex="-1"
+                  role="dialog"
+                  aria-modal="false"
+                  aria-labelledby="form-confirm-label"
+                  class="text-center p-3"
+                >
+                  <p><strong id="form-confirm-label">Are you sure?</strong></p>
+                  <div class="d-flex">
+                    <b-button
+                      variant="outline-danger"
+                      class="mr-3"
+                      @click="onCancel"
+                    >
+                      Cancel
+                    </b-button>
+                    <b-button variant="outline-success" @click="onOK"
+                      >OK</b-button
+                    >
+                  </div>
+                </div>
+              </template>
+            </b-overlay>
+          </b-form>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapState } from "vuex";
+import { mapActions } from "vuex";
+import SignUpValidation from "../../services/SignUpValidation";
+export default {
+  name: "SignUp",
+  data() {
+    return {
+      busy: false,
+      processing: false,
+      counter: 1,
+      interval: null,
+      email: "",
+      password: "",
+      errors: [],
+    };
+  },
+  beforeDestroy() {
+    this.clearInterval();
+  },
+  computed: {
+    ...mapState("auth", {
+      myName: (state) => state.name,
+    }),
+  },
+  methods: {
+    ...mapActions("auth", {
+      signup: "signup",
+    }),
+    clearInterval() {
+      if (this.interval) {
+        clearInterval(this.interval);
+        this.interval = null;
+      }
+    },
+    onShown() {
+      // Focus the dialog prompt
+      this.$refs.dialog.focus();
+    },
+    onHidden() {
+      // In this case, we return focus to the submit button
+      // You may need to alter this based on your application requirements
+      this.$refs.submit.focus();
+    },
+    onSubmit() {
+      this.processing = false;
+      this.busy = true;
+    },
+    OnValid() {
+      let validation = new SignUpValidation(this.email, this.password);
+      this.errors = validation.checkValidations();
+      if ("email" in this.errors || "password" in this.errors) {
+        return false;
+      }
+    },
+    onCancel() {
+      this.busy = false;
+    },
+    onOK() {
+      this.counter = 1;
+      this.processing = true;
+      // Simulate an async request
+      this.clearInterval();
+      this.interval = setInterval(() => {
+        if (this.counter < 20) {
+          this.counter = this.counter + 1;
+        } else {
+          this.clearInterval();
+          this.$nextTick(() => {
+            this.busy = this.processing = false;
+          });
+        }
+      }, 350);
+      this.signup({ email: this.email, password: this.password });
+    },
+    close() {
+      this.$emit("close");
+    },
+  },
+};
 </script>
-
-<style></style>
+<style lang="scss" scoped>
+.modal_form {
+  z-index: 2;
+  left: 30%;
+  top: 30%;
+  background-color: rgb(67, 65, 65);
+  width: 100%;
+}
+.modal {
+  display: block;
+  background-color: rgba(33, 31, 31, 0.95);
+}
+.input-group
+  > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+  margin-left: 10px;
+  border-top-left-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
+}
+.label_name {
+  color: white;
+  width: 100%;
+}
+.btn_close {
+  display: flex;
+  justify-content: end;
+}
+</style>

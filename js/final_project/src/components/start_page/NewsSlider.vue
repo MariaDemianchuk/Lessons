@@ -4,10 +4,12 @@
       <b>Новини</b>
     </h2>
     <swiper
-      :slides-per-view="4"
-      :space-between="30"
-      :loop="false"
+      :modules="modules"
+      :slides-per-view="3"
+      :space-between="50"
       :navigation="{ clickable: true }"
+      :pagination="{ clickable: true }"
+      :scrollbar="{ draggable: true }"
       @swiper="onSwiper"
       @slideChange="onSlideChange"
       class="swiper_block"
@@ -31,7 +33,11 @@
           <b-card-text class="card-text">{{
             art.description.substring(0, 200) + "..."
           }}</b-card-text>
-          <b-button :href="art.url">Читати</b-button>
+          <b-button>
+            <a :href="art.url" target="_blank" rel="noopener noreferrer">
+              Читати
+            </a>
+          </b-button>
         </b-card>
         <!-- <news-slide></news-slide> -->
       </swiper-slide>
@@ -41,9 +47,16 @@
 
 <script>
 // import NewsSlide from "./NewsSlide.vue";
-import { Navigation, Pagination } from "swiper";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { SwiperCore, Swiper, SwiperSlide } from "swiper-vue2";
-import "swiper/swiper-bundle.css";
+import "swiper/css/bundle";
+// import "swiper/scss";
+// import "swiper/scss/navigation";
+// import "swiper/scss/pagination";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 SwiperCore.use([Navigation, Pagination]);
 
 export default {
@@ -71,6 +84,7 @@ export default {
     return {
       onSwiper,
       onSlideChange,
+      modules: [Navigation, Pagination, Scrollbar, A11y],
     };
   },
 };
@@ -127,6 +141,13 @@ h2 {
       font-family: "Comfortaa", cursive;
       font-weight: 400;
       font-size: 17px;
+    }
+    a {
+      text-decoration: none;
+      color: white;
+    }
+    .btn-secondary:hover a {
+      color: black;
     }
   }
   .card-body {

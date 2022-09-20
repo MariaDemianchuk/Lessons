@@ -5,12 +5,10 @@
         <img src="../../assets/logo.png" alt="logo" />
       </div>
       <div class="buttons">
-        <router-link to="/login">
-          <button class="button">Вхід</button>
-        </router-link>
-        <router-link to="/registration">
-          <button class="button">Реєстрація</button>
-        </router-link>
+        <button @click="showModal" class="button">Вхід</button>
+        <LogIn v-show="isModalVisible" @close="closeModal" />
+        <button @click="showModal" class="button">Реєстрація</button>
+        <SignUp v-show="isModalVisible" @close="closeModal" />
       </div>
     </div>
     <div class="bottom-shadow"></div>
@@ -18,8 +16,28 @@
 </template>
 
 <script>
+import SignUp from "../auth/SignUp.vue";
+import LogIn from "../auth/LogIn.vue";
 export default {
   name: "HeaderStart",
+  components: {
+    SignUp,
+    LogIn,
+  },
+  data() {
+    return {
+      isModalVisible: false,
+    };
+  },
+  methods: {
+    showModal() {
+      this.isModalVisible = true;
+      console.log("showed");
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    },
+  },
 };
 </script>
 

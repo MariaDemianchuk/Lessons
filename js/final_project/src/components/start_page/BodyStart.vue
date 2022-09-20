@@ -162,6 +162,7 @@ p {
 }
 .icons {
   width: 100px;
+  height: 100px;
   margin-right: 20px;
 }
 .block {
