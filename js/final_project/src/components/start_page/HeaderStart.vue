@@ -5,8 +5,8 @@
         <img src="../../assets/logo.png" alt="logo" />
       </div>
       <div class="buttons">
-        <button @click="showModal" class="button">Вхід</button>
-        <LogIn v-show="isModalVisible" @close="closeModal" />
+        <button @click="showModalLogIn" class="button">Вхід</button>
+        <LogIn v-show="isModalLogInVisible" @close="closeModal" />
         <button @click="showModal" class="button">Реєстрація</button>
         <SignUp v-show="isModalVisible" @close="closeModal" />
       </div>
@@ -26,6 +26,7 @@ export default {
   },
   data() {
     return {
+      isModalLogInVisible: false,
       isModalVisible: false,
     };
   },
@@ -34,8 +35,12 @@ export default {
       this.isModalVisible = true;
       console.log("showed");
     },
+    showModalLogIn() {
+      this.isModalLogInVisible = true;
+    },
     closeModal() {
       this.isModalVisible = false;
+      this.isModalLogInVisible = false;
     },
   },
 };

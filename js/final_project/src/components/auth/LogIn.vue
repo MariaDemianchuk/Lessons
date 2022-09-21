@@ -2,11 +2,15 @@
   <div>
     <div class="modal">
       <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="alert alert-danger" v-if="errorMessage">
+          {{ errorMessage }}
+        </div>
         <div class="modal-content">
           <b-form
-            class="modal_form position-absolute p-3"
+            class="modal_form position-relative p-3"
             @submit.prevent="onSubmit"
           >
+            <TheLoader v-if="showLoading" />
             <div class="btn_close">
               <button
                 @click="close"
@@ -15,24 +19,12 @@
                 aria-label="Close"
               ></button>
             </div>
-            <b-form-group
-              class="label_name"
-              label="Name"
-              label-for="form-name"
-              label-cols-lg="2"
-            >
-              <b-input-group>
-                <b-input-group-prepend is-text>
-                  <b-icon icon="person-fill"></b-icon>
-                </b-input-group-prepend>
-                <b-form-input id="form-name" :disabled="busy"></b-form-input>
-              </b-input-group>
-            </b-form-group>
 
             <b-form-group
               class="label_name"
               label="Електронна адреса"
               label-for="form-mail"
+              label-cols-lg="8"
             >
               <b-input-group>
                 <b-input-group-prepend is-text>
@@ -41,59 +33,40 @@
                 <b-form-input
                   id="form-email"
                   type="email"
-                  :disabled="busy"
+                  v-model.trim="email"
+                  @input="OnValid"
                 ></b-form-input>
               </b-input-group>
+              <div v-if="errors.email">{{ errors.email }}</div>
             </b-form-group>
 
-            <div class="d-flex justify-content-center">
-              <b-button ref="submit" type="submit" :disabled="busy"
-                >Submit</b-button
+            <b-form-group
+              class="label_name"
+              label="Пароль"
+              label-for="form-name"
+              label-cols-lg="2"
+            >
+              <b-input-group>
+                <b-input-group-prepend is-text>
+                  <b-icon icon="key-fill"></b-icon>
+                </b-input-group-prepend>
+                <b-form-input
+                  id="form-name"
+                  v-model.trim="password"
+                  @input="OnValid"
+                ></b-form-input>
+              </b-input-group>
+              <div v-if="errors.password">{{ errors.password }}</div>
+            </b-form-group>
+
+            <div class="d-flex justify-content-center m-3">
+              <b-button
+                ref="submit"
+                type="submit"
+                :disabled="errors.email || errors.password"
+                >Увійти</b-button
               >
             </div>
-
-            <b-overlay :show="busy" no-wrap @shown="onShown" @hidden="onHidden">
-              <template #overlay>
-                <div
-                  v-if="processing"
-                  class="text-center p-4 bg-primary text-light rounded"
-                >
-                  <b-icon icon="cloud-upload" font-scale="4"></b-icon>
-                  <div class="mb-3">Processing...</div>
-                  <b-progress
-                    min="1"
-                    max="20"
-                    :value="counter"
-                    variant="success"
-                    height="3px"
-                    class="mx-n4 rounded-0"
-                  ></b-progress>
-                </div>
-                <div
-                  v-else
-                  ref="dialog"
-                  tabindex="-1"
-                  role="dialog"
-                  aria-modal="false"
-                  aria-labelledby="form-confirm-label"
-                  class="text-center p-3"
-                >
-                  <p><strong id="form-confirm-label">Are you sure?</strong></p>
-                  <div class="d-flex">
-                    <b-button
-                      variant="outline-danger"
-                      class="mr-3"
-                      @click="onCancel"
-                    >
-                      Cancel
-                    </b-button>
-                    <b-button variant="outline-success" @click="onOK"
-                      >OK</b-button
-                    >
-                  </div>
-                </div>
-              </template>
-            </b-overlay>
           </b-form>
         </div>
       </div>
@@ -102,25 +75,59 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+import TheLoader from "../TheLoader.vue";
+import SignUpValidation from "../../services/SignUpValidation";
 export default {
   name: "LogIn",
   data() {
     return {
-      busy: false,
-      processing: false,
-      counter: 1,
-      interval: null,
+      email: "",
+      password: "",
+      errors: [],
+      showLoading: false,
+      errorMessage: "",
     };
   },
-  beforeDestroy() {
-    this.clearInterval();
+  components: {
+    TheLoader,
   },
   methods: {
-    clearInterval() {
-      if (this.interval) {
-        clearInterval(this.interval);
-        this.interval = null;
+    ...mapActions("auth", {
+      login: "login",
+    }),
+    OnValid() {
+      let validation = new SignUpValidation(this.email, this.password);
+      this.errors = validation.checkValidations();
+      if ("email" in this.errors || "password" in this.errors) {
+        return false;
       }
+    },
+    async onSubmit() {
+      this.showLoading = true;
+      await this.login({
+        email: this.email,
+        password: this.password,
+      }).catch((error) => {
+        switch (error) {
+          case "EMAIL_NOT_FOUND":
+            this.errorMessage =
+              "не вірна електронна пошта або користувач не зареєстрований";
+            break;
+          case "INVALID_PASSWORD":
+            this.errorMessage = "не вірний пароль";
+            break;
+          case "INVALID_EMAIL":
+            this.errorMessage = "введіть електронну пошту";
+            break;
+          default:
+            return "Сталася помилка. Спробуйте, будь ласка, ще раз.";
+        }
+        console.log(this.errorMessage);
+        this.showLoading = false;
+      });
+      this.showLoading = false;
+      this.$router.push("/user");
     },
     onShown() {
       // Focus the dialog prompt
@@ -131,29 +138,6 @@ export default {
       // You may need to alter this based on your application requirements
       this.$refs.submit.focus();
     },
-    onSubmit() {
-      this.processing = false;
-      this.busy = true;
-    },
-    onCancel() {
-      this.busy = false;
-    },
-    onOK() {
-      this.counter = 1;
-      this.processing = true;
-      // Simulate an async request
-      this.clearInterval();
-      this.interval = setInterval(() => {
-        if (this.counter < 20) {
-          this.counter = this.counter + 1;
-        } else {
-          this.clearInterval();
-          this.$nextTick(() => {
-            this.busy = this.processing = false;
-          });
-        }
-      }, 350);
-    },
     close() {
       this.$emit("close");
     },
@@ -163,8 +147,6 @@ export default {
 <style lang="scss" scoped>
 .modal_form {
   z-index: 2;
-  left: 30%;
-  top: 30%;
   background-color: rgb(67, 65, 65);
   width: 100%;
 }
@@ -185,5 +167,11 @@ export default {
 .btn_close {
   display: flex;
   justify-content: end;
+}
+.alert-danger {
+  z-index: 13;
+  position: absolute;
+  width: 100%;
+  top: 26%;
 }
 </style>

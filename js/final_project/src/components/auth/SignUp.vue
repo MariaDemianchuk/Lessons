@@ -3,10 +3,14 @@
     <div class="modal">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
+          <div class="alert alert-danger" v-if="errorMessage">
+            {{ errorMessage }}
+          </div>
           <b-form
-            class="modal_form position-absolute p-3"
+            class="modal_form position-relative p-3"
             @submit.prevent="onSubmit"
           >
+            <TheLoader v-if="showLoading" />
             <div class="btn_close">
               <button
                 @click="close"
@@ -15,30 +19,12 @@
                 aria-label="Close"
               ></button>
             </div>
-            <b-form-group
-              class="label_name"
-              label="Name"
-              label-for="form-name"
-              label-cols-lg="2"
-            >
-              <b-input-group>
-                <b-input-group-prepend is-text>
-                  <b-icon icon="person-fill"></b-icon>
-                </b-input-group-prepend>
-                <b-form-input
-                  id="form-name"
-                  :disabled="busy"
-                  v-model="password"
-                  @input="OnValid"
-                ></b-form-input>
-              </b-input-group>
-              <div v-if="errors.password">{{ errors.password }}</div>
-            </b-form-group>
 
             <b-form-group
               class="label_name"
               label="Електронна адреса"
               label-for="form-mail"
+              label-cols-lg="8"
             >
               <b-input-group>
                 <b-input-group-prepend is-text>
@@ -47,7 +33,6 @@
                 <b-form-input
                   id="form-email"
                   type="email"
-                  :disabled="busy"
                   v-model="email"
                   @input="OnValid"
                 ></b-form-input>
@@ -55,63 +40,33 @@
               <div v-if="errors.email">{{ errors.email }}</div>
             </b-form-group>
 
-            <b-form-checkbox
-              id="checkbox-1"
-              name="checkbox-1"
-              value="accepted"
-              unchecked-value="not_accepted"
+            <b-form-group
+              class="label_name m-1"
+              label="Пароль"
+              label-for="form-name"
+              label-cols-lg="2"
             >
-              I accept the terms and use
-            </b-form-checkbox>
+              <b-input-group>
+                <b-input-group-prepend is-text>
+                  <b-icon icon="key-fill"></b-icon>
+                </b-input-group-prepend>
+                <b-form-input
+                  id="form-name"
+                  v-model="password"
+                  @input="OnValid"
+                ></b-form-input>
+              </b-input-group>
+              <div v-if="errors.password">{{ errors.password }}</div>
+            </b-form-group>
 
-            <div class="d-flex justify-content-center">
-              <b-button ref="submit" type="submit" :disabled="busy"
-                >Submit</b-button
-              >
+            <div class="d-flex justify-content-center m-1">
+              <b-button
+                ref="submit"
+                type="submit"
+                :disabled="errors.email || errors.password"
+                >зареєструватися
+              </b-button>
             </div>
-
-            <b-overlay :show="busy" no-wrap @shown="onShown" @hidden="onHidden">
-              <template #overlay>
-                <div
-                  v-if="processing"
-                  class="text-center p-4 bg-primary text-light rounded"
-                >
-                  <b-icon icon="cloud-upload" font-scale="4"></b-icon>
-                  <div class="mb-3">Processing...</div>
-                  <b-progress
-                    min="1"
-                    max="20"
-                    :value="counter"
-                    variant="success"
-                    height="3px"
-                    class="mx-n4 rounded-0"
-                  ></b-progress>
-                </div>
-                <div
-                  v-else
-                  ref="dialog"
-                  tabindex="-1"
-                  role="dialog"
-                  aria-modal="false"
-                  aria-labelledby="form-confirm-label"
-                  class="text-center p-3"
-                >
-                  <p><strong id="form-confirm-label">Are you sure?</strong></p>
-                  <div class="d-flex">
-                    <b-button
-                      variant="outline-danger"
-                      class="mr-3"
-                      @click="onCancel"
-                    >
-                      Cancel
-                    </b-button>
-                    <b-button variant="outline-success" @click="onOK"
-                      >OK</b-button
-                    >
-                  </div>
-                </div>
-              </template>
-            </b-overlay>
           </b-form>
         </div>
       </div>
@@ -120,52 +75,57 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
 import { mapActions } from "vuex";
 import SignUpValidation from "../../services/SignUpValidation";
+import TheLoader from "../TheLoader.vue";
 export default {
   name: "SignUp",
   data() {
     return {
-      busy: false,
-      processing: false,
-      counter: 1,
-      interval: null,
       email: "",
       password: "",
       errors: [],
+      errorMessage: "",
+      showLoading: false,
     };
   },
-  beforeDestroy() {
-    this.clearInterval();
-  },
-  computed: {
-    ...mapState("auth", {
-      myName: (state) => state.name,
-    }),
+  components: {
+    TheLoader,
   },
   methods: {
     ...mapActions("auth", {
       signup: "signup",
     }),
-    clearInterval() {
-      if (this.interval) {
-        clearInterval(this.interval);
-        this.interval = null;
-      }
-    },
-    onShown() {
-      // Focus the dialog prompt
-      this.$refs.dialog.focus();
+    async onSubmit() {
+      this.showLoading = true;
+      await this.signup({
+        email: this.email,
+        password: this.password,
+      }).catch((error) => {
+        switch (error) {
+          case "EMAIL_EXISTS":
+            this.errorMessage = "така електронна адреса вже існує";
+            break;
+          case "INVALID_EMAIL":
+            this.errorMessage = "не вірна електронна адреса";
+            break;
+          default:
+            return "Сталася помилка. Спробуйте, будь ласка, ще раз.";
+        }
+        console.log(this.errorMessage);
+        this.showLoading = false;
+      });
+      this.showLoading = false;
+      this.$router.push("/user");
     },
     onHidden() {
       // In this case, we return focus to the submit button
       // You may need to alter this based on your application requirements
       this.$refs.submit.focus();
     },
-    onSubmit() {
-      this.processing = false;
-      this.busy = true;
+    onShown() {
+      // Focus the dialog prompt
+      this.$refs.dialog.focus();
     },
     OnValid() {
       let validation = new SignUpValidation(this.email, this.password);
@@ -173,26 +133,6 @@ export default {
       if ("email" in this.errors || "password" in this.errors) {
         return false;
       }
-    },
-    onCancel() {
-      this.busy = false;
-    },
-    onOK() {
-      this.counter = 1;
-      this.processing = true;
-      // Simulate an async request
-      this.clearInterval();
-      this.interval = setInterval(() => {
-        if (this.counter < 20) {
-          this.counter = this.counter + 1;
-        } else {
-          this.clearInterval();
-          this.$nextTick(() => {
-            this.busy = this.processing = false;
-          });
-        }
-      }, 350);
-      this.signup({ email: this.email, password: this.password });
     },
     close() {
       this.$emit("close");
@@ -203,8 +143,6 @@ export default {
 <style lang="scss" scoped>
 .modal_form {
   z-index: 2;
-  left: 30%;
-  top: 30%;
   background-color: rgb(67, 65, 65);
   width: 100%;
 }
