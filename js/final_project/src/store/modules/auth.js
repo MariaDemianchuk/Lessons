@@ -5,7 +5,11 @@ const state = {
   refreshToken: "",
   expiresIn: "",
 };
-const getters = {};
+const getters = {
+  getEmail(state) {
+    return state.email;
+  },
+};
 const mutations = {
   SET_USER_TOKEN_DATA(state, payload) {
     state.token = payload.token;
@@ -16,6 +20,15 @@ const mutations = {
   },
 };
 const actions = {
+  logout(context) {
+    context.commit("SET_USER_TOKEN_DATA", {
+      token: null,
+      email: null,
+      userId: null,
+      refreshToken: null,
+      expiresIn: null,
+    });
+  },
   async login(context, payload) {
     let postData = {
       method: "POST",

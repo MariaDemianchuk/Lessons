@@ -1,9 +1,16 @@
 <template>
-  <div>User Page</div>
+  <div>
+    <HeaderOfPage />
+  </div>
 </template>
 
 <script>
-export default {};
+import HeaderOfPage from "../../components/user_page/HeaderOfPage.vue";
+export default {
+  components: {
+    HeaderOfPage,
+  },
+};
 </script>
 
 <style></style>
