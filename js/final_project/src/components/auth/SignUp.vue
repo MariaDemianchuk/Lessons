@@ -87,6 +87,7 @@ export default {
       errors: [],
       errorMessage: "",
       showLoading: false,
+      success: false,
     };
   },
   components: {
@@ -98,6 +99,7 @@ export default {
     }),
     async onSubmit() {
       this.showLoading = true;
+      this.errorMessage = "";
       await this.signup({
         email: this.email,
         password: this.password,
@@ -116,7 +118,9 @@ export default {
         this.showLoading = false;
       });
       this.showLoading = false;
-      this.$router.push("/user");
+      if (this.errorMessage === "") {
+        this.$router.push("/user");
+      }
     },
     onHidden() {
       // In this case, we return focus to the submit button

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <router-view></router-view>
     <div class="modal">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="alert alert-danger" v-if="errorMessage">
@@ -105,6 +106,7 @@ export default {
     },
     async onSubmit() {
       this.showLoading = true;
+      this.errorMessage = "";
       await this.login({
         email: this.email,
         password: this.password,
@@ -127,7 +129,9 @@ export default {
         this.showLoading = false;
       });
       this.showLoading = false;
-      this.$router.push("/user");
+      if (this.errorMessage === "") {
+        this.$router.push("/user");
+      }
     },
     onShown() {
       // Focus the dialog prompt

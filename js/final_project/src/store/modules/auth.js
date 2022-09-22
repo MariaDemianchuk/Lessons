@@ -62,6 +62,7 @@ const actions = {
     );
 
     const data = await response.json();
+    console.log(data);
 
     if (!data.error) {
       context.commit("SET_USER_TOKEN_DATA", {
