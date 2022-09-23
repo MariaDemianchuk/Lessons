@@ -6,7 +6,7 @@ axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
 export default {
   getNews() {
     return axios.get(
-      "?apiKey=5986a3c0-b2d8-407a-949a-9d58f8cae46d&from=2022-09-12&showNumResults=true&showReprints=false&sortBy=relevance&language=uk&q=вантажівка логістика автотранспорт тент зерновоз бензин дизельне дизель"
+      "?apiKey=e6bd63f9-8cc9-40f7-bfdd-7659399522be&from=2022-09-22&sourceGroup=top100&showNumResults=true&showReprints=false&excludeLabel=Non-news&excludeLabel=Opinion&excludeLabel=Paid News&excludeLabel=Roundup&excludeLabel=Press Release&sortBy=date&q=films actor film movie"
     );
   },
 };

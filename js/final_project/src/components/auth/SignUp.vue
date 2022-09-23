@@ -2,10 +2,10 @@
   <div>
     <div class="modal">
       <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="alert alert-danger" v-if="errorMessage">
+          {{ errorMessage }}
+        </div>
         <div class="modal-content">
-          <div class="alert alert-danger" v-if="errorMessage">
-            {{ errorMessage }}
-          </div>
           <b-form
             class="modal_form position-relative p-3"
             @submit.prevent="onSubmit"
@@ -167,5 +167,11 @@ export default {
 .btn_close {
   display: flex;
   justify-content: end;
+}
+.alert-danger {
+  z-index: 13;
+  position: absolute;
+  width: 100%;
+  top: 26%;
 }
 </style>

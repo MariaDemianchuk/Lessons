@@ -7,7 +7,9 @@ import VueAxios from "vue-axios";
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
+import VueCarousel from "vue-carousel";
 
+Vue.use(VueCarousel);
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
 Vue.use(BootstrapVue);
