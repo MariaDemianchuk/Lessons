@@ -23,7 +23,7 @@
 
             <b-form-group
               class="label_name"
-              label="Електронна адреса"
+              label="Email"
               label-for="form-mail"
               label-cols-lg="8"
             >
@@ -43,7 +43,7 @@
 
             <b-form-group
               class="label_name"
-              label="Пароль"
+              label="Password"
               label-for="form-name"
               label-cols-lg="2"
             >
@@ -53,6 +53,7 @@
                 </b-input-group-prepend>
                 <b-form-input
                   id="form-name"
+                  type="password"
                   v-model.trim="password"
                   @input="OnValid"
                 ></b-form-input>
@@ -64,8 +65,8 @@
               <b-button
                 ref="submit"
                 type="submit"
-                :disabled="errors.email || errors.password"
-                >Увійти</b-button
+                :disabled="!!errors.email || !!errors.password"
+                >LogIn</b-button
               >
             </div>
           </b-form>
@@ -132,6 +133,8 @@ export default {
       if (this.errorMessage === "") {
         this.$router.push("/user");
       }
+      this.email = "";
+      this.password = "";
     },
     onShown() {
       // Focus the dialog prompt

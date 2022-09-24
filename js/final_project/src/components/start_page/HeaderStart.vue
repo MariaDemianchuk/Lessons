@@ -5,9 +5,9 @@
         <img src="../../assets/logo.png" alt="logo" />
       </div>
       <div class="buttons">
-        <button @click="showModalLogIn" class="button">Вхід</button>
+        <button @click="showModalLogIn" class="button">LogIn</button>
         <LogIn v-show="isModalLogInVisible" @close="closeModal" />
-        <button @click="showModal" class="button">Реєстрація</button>
+        <button @click="showModal" class="button">SignUp</button>
         <SignUp v-show="isModalVisible" @close="closeModal" />
       </div>
     </div>

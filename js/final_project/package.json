@@ -12,6 +12,7 @@
     "bootstrap": "^5.2.1",
     "bootstrap-vue": "^2.22.0",
     "core-js": "^3.8.3",
+    "mdb-vue-ui-kit": "^3.0.0",
     "navigation": "^6.1.0",
     "v-show-slide": "^1.8.3",
     "vue": "^2.6.14",
@@ -21,10 +22,12 @@
     "vue-glide-js": "^1.3.14",
     "vue-horizontal-list": "^1.3.0",
     "vue-router": "^3.5.1",
+    "vue-slick-carousel": "^1.0.6",
+    "vue-ui-preloader": "^1.2.1",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.16",
+    "@babel/core": "^7.19.1",
     "@babel/eslint-parser": "^7.12.16",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",

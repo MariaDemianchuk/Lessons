@@ -1,14 +1,17 @@
 <template>
-  <div></div>
+  <div>
+    <BodySearch />
+    <BodySlider />
+  </div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import BodySlider from "./BodySlider.vue";
+import BodySearch from "./BodySearch.vue";
 export default {
-  methods: {
-    ...mapActions("database", {
-      database: "getDataBase",
-    }),
+  components: {
+    BodySlider,
+    BodySearch,
   },
 };
 </script>

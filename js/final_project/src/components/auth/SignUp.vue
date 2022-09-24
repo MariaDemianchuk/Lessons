@@ -22,7 +22,7 @@
 
             <b-form-group
               class="label_name"
-              label="Електронна адреса"
+              label="Email"
               label-for="form-mail"
               label-cols-lg="8"
             >
@@ -42,7 +42,7 @@
 
             <b-form-group
               class="label_name m-1"
-              label="Пароль"
+              label="Password"
               label-for="form-name"
               label-cols-lg="2"
             >
@@ -63,8 +63,8 @@
               <b-button
                 ref="submit"
                 type="submit"
-                :disabled="errors.email || errors.password"
-                >зареєструватися
+                :disabled="!!errors.email || !!errors.password"
+                >SignUp
               </b-button>
             </div>
           </b-form>
@@ -121,6 +121,8 @@ export default {
       if (this.errorMessage === "") {
         this.$router.push("/user");
       }
+      this.email = "";
+      this.password = "";
     },
     onHidden() {
       // In this case, we return focus to the submit button
