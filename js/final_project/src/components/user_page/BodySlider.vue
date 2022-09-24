@@ -6,6 +6,7 @@
         <div v-for="ind in 19" :key="ind" class="bottom__block">
           <div>
             <img
+              v-if="populars[ind].backdrop_path"
               :src="`https://image.tmdb.org/t/p/original/${populars[ind].backdrop_path}`"
               alt="image"
             />

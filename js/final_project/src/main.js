@@ -9,7 +9,10 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import VueCarousel from "vue-carousel";
 import loader from "vue-ui-preloader";
+import Buefy from "buefy";
+import "buefy/dist/buefy.css";
 
+Vue.use(Buefy);
 Vue.use(VueCarousel);
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
