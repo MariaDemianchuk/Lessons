@@ -25,4 +25,9 @@ export default {
       "https://api.themoviedb.org/3/movie/popular?api_key=1901d4ddedf283037c131abf45be39d0&page=1"
     );
   },
+  getSearch(page) {
+    return axios.get(
+      `https://api.themoviedb.org/3/search/movie?api_key=1901d4ddedf283037c131abf45be39d0&query=harry&page=${page}`
+    );
+  },
 };

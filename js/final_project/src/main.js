@@ -11,7 +11,10 @@ import VueCarousel from "vue-carousel";
 import loader from "vue-ui-preloader";
 import Buefy from "buefy";
 import "buefy/dist/buefy.css";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
+Vue.component("font-awesome-icon", FontAwesomeIcon);
+Vue.config.productionTip = false;
 Vue.use(Buefy);
 Vue.use(VueCarousel);
 Vue.config.productionTip = false;

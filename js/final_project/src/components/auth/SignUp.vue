@@ -8,7 +8,7 @@
         <div class="modal-content">
           <b-form
             class="modal_form position-relative p-3"
-            @submit.prevent="onSubmit"
+            @submit.prevent="onSubmit()"
           >
             <TheLoader v-if="showLoading" />
             <div class="btn_close">

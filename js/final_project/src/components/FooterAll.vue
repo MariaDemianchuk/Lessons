@@ -25,8 +25,6 @@ export default {};
   box-sizing: border-box;
   box-shadow: 0px 0px 19px -1px rgb(155 15 15);
   padding: 0;
-  position: fixed;
-  bottom: 0;
 
   .wrapper {
     display: flex;
