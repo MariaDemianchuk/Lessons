@@ -114,17 +114,16 @@ export default {
       }).catch((error) => {
         switch (error) {
           case "EMAIL_NOT_FOUND":
-            this.errorMessage =
-              "не вірна електронна пошта або користувач не зареєстрований";
+            this.errorMessage = "wrong email or user not registered";
             break;
           case "INVALID_PASSWORD":
-            this.errorMessage = "не вірний пароль";
+            this.errorMessage = "invalid password";
             break;
           case "INVALID_EMAIL":
-            this.errorMessage = "введіть електронну пошту";
+            this.errorMessage = "please enter your email";
             break;
           default:
-            return "Сталася помилка. Спробуйте, будь ласка, ще раз.";
+            return "something go wrong... please try again";
         }
         console.log(this.errorMessage);
         this.showLoading = false;

@@ -106,5 +106,33 @@ export default {};
   .footer__social a:hover {
     color: rgb(108 65 65);
   }
+
+  @media screen and (max-width: 1000px) {
+    .footer__social a {
+      font-size: 30px;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    .footer__social {
+      margin-left: 20px;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .footer__all_end_text {
+      font-size: 10px;
+    }
+  }
+  @media screen and (max-width: 340px) {
+    img {
+      height: 60px;
+      width: 60px;
+    }
+    .footer__social a {
+      font-size: 25px;
+    }
+    .footer__social {
+      margin-right: 10px;
+    }
+  }
 }
 </style>

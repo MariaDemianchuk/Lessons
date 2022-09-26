@@ -10,6 +10,22 @@
       :autoplayHoverPause="true"
       :autoplayTimeout="3000"
       :loop="true"
+      :perPageCustom="[
+        [1900, 4],
+        [1800, 4],
+        [1700, 4],
+        [1600, 4],
+        [1500, 4],
+        [1400, 4],
+        [1300, 4],
+        [1200, 3],
+        [1100, 3],
+        [1000, 3],
+        [890, 2],
+        [700, 2],
+        [600, 2],
+        [250, 1],
+      ]"
     >
       <slide v-for="art in news" :key="art.articleId" :art="art">
         <b-card class="card__slide">
@@ -122,5 +138,10 @@ a {
   color: rgb(171, 167, 167);
   position: relative;
   font-style: italic;
+}
+@media screen and (max-width: 400px) {
+  .btn-secondary {
+    font-size: 13px;
+  }
 }
 </style>

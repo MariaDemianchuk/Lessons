@@ -40,7 +40,7 @@ export default {
       num: 0,
       settings: {
         centerMode: true,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 3500,
         dots: true,
         infinite: true,
@@ -169,5 +169,60 @@ h2 {
   color: transparent;
   background-color: white;
   box-shadow: 0px 0px 19px 3px rgb(102 0 0);
+}
+@media screen and (max-width: 1100px) {
+  .bottom_block_text {
+    padding: 100px 10px 40px 10px;
+  }
+  .bottom_block_overwiew {
+    max-width: 90%;
+  }
+}
+@media screen and (max-width: 970px) {
+  .bottom_block_title {
+    font-size: 25px;
+  }
+  .bottom_block_text {
+    font-size: 14px;
+    padding: 70px 10px 20px 10px;
+  }
+}
+@media screen and (max-width: 660px) {
+  .bottom_block_title {
+    font-size: 20px;
+  }
+  .bottom_block_text {
+    font-size: 11px;
+    padding: 50px 10px 10px 10px;
+  }
+  .slick-dots li button:before {
+    font-size: 8px;
+    width: 9px;
+    height: 9px;
+  }
+}
+@media screen and (max-width: 580px) {
+  .bottom_block_title {
+    font-size: 15px;
+  }
+  .bottom_block_text {
+    font-size: 9px;
+    padding: 40px 5px 5px 5px;
+    overflow: hidden;
+  }
+  .slick-dots li button:before {
+    font-size: 6px;
+    width: 7px;
+    height: 7px;
+  }
+}
+@media screen and (max-width: 540px) {
+  .slick-dots li button:before {
+    display: none;
+  }
+  .bottom_block_overwiew {
+    max-width: 100%;
+    padding: 10px;
+  }
 }
 </style>

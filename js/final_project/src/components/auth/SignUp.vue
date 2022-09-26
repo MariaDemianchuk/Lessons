@@ -106,13 +106,13 @@ export default {
       }).catch((error) => {
         switch (error) {
           case "EMAIL_EXISTS":
-            this.errorMessage = "така електронна адреса вже існує";
+            this.errorMessage = "email already exists";
             break;
           case "INVALID_EMAIL":
-            this.errorMessage = "не вірна електронна адреса";
+            this.errorMessage = "invalid email";
             break;
           default:
-            return "Сталася помилка. Спробуйте, будь ласка, ще раз.";
+            return "something go wrong... please try again";
         }
         console.log(this.errorMessage);
         this.showLoading = false;
@@ -125,12 +125,9 @@ export default {
       this.password = "";
     },
     onHidden() {
-      // In this case, we return focus to the submit button
-      // You may need to alter this based on your application requirements
       this.$refs.submit.focus();
     },
     onShown() {
-      // Focus the dialog prompt
       this.$refs.dialog.focus();
     },
     OnValid() {

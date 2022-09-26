@@ -91,4 +91,39 @@ export default {
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   height: 10px;
 }
+@media screen and (max-width: 1150px) {
+  .header .buttons .button {
+    width: 90px;
+    height: 90%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .header .buttons .button {
+    width: 60px;
+    height: 60%;
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 470px) {
+  .header .logo {
+    margin-right: 30px;
+  }
+  .header .buttons {
+    max-width: 250px;
+    width: 50%;
+  }
+}
+@media screen and (max-width: 340px) {
+  .header .buttons .button {
+    width: 50px;
+    height: 50%;
+    font-size: 11px;
+  }
+  .header .logo {
+    margin-right: 10px;
+  }
+  .header img {
+    height: 50px;
+  }
+}
 </style>
