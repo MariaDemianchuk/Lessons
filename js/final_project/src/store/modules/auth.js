@@ -58,7 +58,6 @@ const actions = {
     let response = await fetch(payload.url, postData);
 
     const data = await response.json();
-    console.log(data);
 
     if (!data.error) {
       let tokenData = {
@@ -70,9 +69,7 @@ const actions = {
       };
       localStorage.setItem("userData", JSON.stringify(tokenData));
       context.commit("SET_USER_TOKEN_DATA", tokenData);
-      console.log(tokenData);
     } else {
-      console.log(data.error);
       throw data.error.message;
     }
   },
@@ -80,7 +77,6 @@ const actions = {
     let userData = localStorage.getItem("userData");
     if (userData) {
       context.commit("SET_USER_TOKEN_DATA", JSON.parse(userData));
-      console.log(JSON.parse(userData));
     }
   },
 };

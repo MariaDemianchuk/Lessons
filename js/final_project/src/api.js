@@ -25,9 +25,17 @@ export default {
       "https://api.themoviedb.org/3/movie/popular?api_key=1901d4ddedf283037c131abf45be39d0&page=1"
     );
   },
-  getSearch(page) {
+  getSearchPerPage(url, page) {
+    return axios.get(`${url}&page=${page}`);
+  },
+  getSearch(title) {
     return axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=1901d4ddedf283037c131abf45be39d0&query=harry&page=${page}`
+      `https://api.themoviedb.org/3/search/movie?api_key=1901d4ddedf283037c131abf45be39d0&query=${title}`
+    );
+  },
+  getVideo(id) {
+    return axios.get(
+      `https://api.themoviedb.org/3/movie/${id}/videos?api_key=1901d4ddedf283037c131abf45be39d0`
     );
   },
 };

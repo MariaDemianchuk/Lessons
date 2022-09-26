@@ -3,12 +3,14 @@ import api from "../../api";
 const state = {
   upcoming: [],
   popular: [],
-  search: [],
+  dataSearch: [],
   page: 1,
-  total_results: null,
+  total: 1,
+  url: "https://api.themoviedb.org/3/search/movie?api_key=1901d4ddedf283037c131abf45be39d0&query=fall",
+  videoURL: [],
+  idVideo: "",
   loading: false,
 };
-console.log(state.upcoming);
 const getters = {
   getUpcoming(state) {
     return state.upcoming;
@@ -17,13 +19,16 @@ const getters = {
     return state.popular;
   },
   getSearch(state) {
-    return state.search;
+    return state.dataSearch;
   },
   getPages(state) {
     return state.page;
   },
-  getTotalResults(state) {
-    return state.total_results;
+  getTotal(state) {
+    return state.total;
+  },
+  getVideoUrl(state) {
+    return state.videoURL;
   },
   getLoading(state) {
     return state.loading;
@@ -37,45 +42,72 @@ const mutations = {
   SET_POPULAR_MOVIES(state, payload) {
     state.popular = payload;
   },
-  SET_SEARCH_MOVIES(state, payload) {
-    state.search = payload;
-    console.log(payload);
-  },
   SET_PAGE(state, payload) {
     state.page = payload;
   },
   SET_TOTAL_RESULTS(state, payload) {
-    state.total_results = payload.total_results;
+    state.total = payload;
+  },
+  SET_DATA_SEARCH(state, payload) {
+    state.dataSearch = payload;
+  },
+  SET_NEW_URL(state, payload) {
+    state.url = payload;
+  },
+  SET_VIDEO_URL(state, payload) {
+    state.videoURL = payload;
+  },
+  SET_VIDEO_ID(state, payload) {
+    state.idVideo = payload;
   },
   SET_LOADING(state, payload) {
-    state.loading = payload.loading;
+    state.loading = payload;
   },
 };
 const actions = {
   getUpcoming({ commit }) {
+    commit("SET_LOADING", true);
     api.getUpcoming().then((resp) => {
       console.log(resp);
       commit("SET_UPCOMING_MOVIES", resp.data.results);
+      commit("SET_LOADING", false);
     });
   },
   getPopular({ commit }) {
+    commit("SET_LOADING", true);
     api.getPopular().then((resp) => {
       console.log(resp.data.results);
       commit("SET_POPULAR_MOVIES", resp.data.results);
+      commit("SET_LOADING", false);
     });
   },
-  getSearch({ commit }, page) {
-    api.getSearch(page).then((resp) => {
-      console.log(resp.data);
-      commit("SET_SEARCH_MOVIES", resp.data.results);
+  getSearchPerPage({ commit }, page) {
+    let url = state.url;
+    commit("SET_LOADING", true);
+    api.getSearchPerPage(url, page).then((resp) => {
       commit("SET_PAGE", resp.data.total_pages);
       commit("SET_TOTAL_RESULTS", resp.data.total_results);
-      console.log(
-        "pages",
-        resp.data.total_pages,
-        "total",
-        resp.data.total_results
-      );
+      commit("SET_DATA_SEARCH", resp.data.results);
+      console.log(resp.data.results);
+      commit("SET_LOADING", false);
+    });
+  },
+  getSearch({ commit }, title) {
+    api.getSearch(title).then((resp) => {
+      console.log(resp.data.title);
+      commit("SET_DATA_SEARCH", resp.data.results);
+      commit("SET_PAGE", resp.data.total_pages);
+      commit("SET_TOTAL_RESULTS", resp.data.total_results);
+      let url = `https://api.themoviedb.org/3/search/movie?api_key=1901d4ddedf283037c131abf45be39d0&query=${title}`;
+      commit("SET_NEW_URL", url);
+    });
+  },
+  getVideo({ commit }) {
+    let id = state.idVideo;
+    console.log(id);
+    api.getVideo(id).then((resp) => {
+      console.log(resp.data);
+      commit("SET_VIDEO_URL", resp.data.results);
     });
   },
 };

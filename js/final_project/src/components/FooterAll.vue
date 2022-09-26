@@ -3,7 +3,36 @@
     <div class="cont">
       <div class="wrapper">
         <img src="../assets/logo.png" alt="logo" />
-        <div></div>
+        <div class="footer__social">
+          <div>
+            <a href="https://www.instagram.com/" target="_blank">
+              <div class="footer__social__bg">
+                <font-awesome-icon icon="fa-brands fa-instagram" />
+              </div>
+            </a>
+          </div>
+          <div>
+            <a href="https://www.facebook.com/" target="_blank">
+              <div class="footer__social__bg">
+                <font-awesome-icon icon="fa-brands fa-square-facebook" />
+              </div>
+            </a>
+          </div>
+          <div>
+            <a href="https://twitter.com/" target="_blank">
+              <div class="footer__social__bg">
+                <font-awesome-icon icon="fa-brands fa-square-twitter" />
+              </div>
+            </a>
+          </div>
+          <div>
+            <a href="https://www.linkedin.com/" target="_blank">
+              <div class="footer__social__bg">
+                <font-awesome-icon icon="fa-brands fa-linkedin" />
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
       <div class="footer__all_end">
         <p class="footer__all_end_text">2022 - MOVIE ClUB</p>
@@ -13,6 +42,14 @@
 </template>
 
 <script>
+import {
+  faInstagram,
+  faSquareFacebook,
+  faSquareTwitter,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
+library.add(faInstagram, faSquareFacebook, faSquareTwitter, faLinkedin);
+import { library } from "@fortawesome/fontawesome-svg-core";
 export default {};
 </script>
 
@@ -54,6 +91,20 @@ export default {};
   img {
     height: 80px;
     width: 80px;
+  }
+  .footer__social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+  }
+  .footer__social a {
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+  }
+  .footer__social a:hover {
+    color: rgb(108 65 65);
   }
 }
 </style>

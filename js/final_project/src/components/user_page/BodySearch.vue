@@ -1,40 +1,29 @@
 <template>
   <div class="container__search">
-    <b-form>
-      <b-field label="Title" label-for="title">
-        <b-input
-          placeholder="Enter movie title..."
-          type="search"
-          loading="true"
-          id="title"
-          v-model="title"
-        >
-        </b-input>
-      </b-field>
-      <b-field label="Year" label-for="year">
-        <b-input
-          placeholder="Enter release year..."
-          type="search"
-          loading="true"
-          id="year"
-          v-model="year"
-        >
-        </b-input>
-      </b-field>
-      <b-button variant="outline-dark" size="lg" class="button">
-        <font-awesome-icon icon="fa-solid fa-magnifying-glass fa-lg"
-      /></b-button>
-    </b-form>
-    <p>{{ title }}</p>
-    <p>{{ year }}</p>
+    <b-field>
+      <b-input placeholder="Enter movie title..." type="search" v-model="title">
+      </b-input>
+    </b-field>
   </div>
 </template>
 
 <script>
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-library.add(faMagnifyingGlass);
-import { library } from "@fortawesome/fontawesome-svg-core";
-export default {};
+export default {
+  data() {
+    return {
+      title: "",
+    };
+  },
+  mounted() {
+    this.$store.dispatch("getSearchPerPage", "1");
+    console.log("search mounted");
+  },
+  watch: {
+    title(title) {
+      this.$store.dispatch("getSearch", title);
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -42,9 +31,6 @@ export default {};
   margin: 0 auto;
   max-width: 90%;
   padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 .form-control:focus {
   box-shadow: 0px 0px 19px -1px rgb(155 15 15);
@@ -73,10 +59,7 @@ export default {};
   --bs-btn-hover-border-color: white;
 }
 .field {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0;
+  margin: 10px 150px;
 }
 .label:not(:last-child) {
   margin-bottom: 0;
